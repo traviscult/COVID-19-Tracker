@@ -1,20 +1,10 @@
 import axios from "axios";
 
 export default {
-  // Gets all books
-  getBooks: function() {
-    return axios.get("/api/books");
-  },
-  // Gets the book with the given id
-  getBook: function(id) {
-    return axios.get("/api/books/" + id);
-  },
-  // Deletes the book with the given id
-  deleteBook: function(id) {
-    return axios.delete("/api/books/" + id);
-  },
-  // Saves a book to the database
-  saveBook: function(bookData) {
-    return axios.post("/api/books", bookData);
-  }
-};
+  // Gets quizes
+  symptomChecker: function() {
+    const appId = "f3ec44a2"
+    const APIKey = "ea2e478aeea48ed264c553324544937e"
+    return axios.get(`https://api.infermedica.com/covid19 ${appId} ${APIKey}`)
+}
+}
