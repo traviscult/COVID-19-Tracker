@@ -1,0 +1,22 @@
+header {
+  background-image: url("/../../../images/covid-19-1330px.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 18vh;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  text-transform: uppercase;
+  color: #faebfa;
+  text-shadow: 4px 2px 4px #271a27;
+  margin: 1rem 0 0 3rem;
+}
+
+header p {
+  color: #b0f3cf;
+  margin-left: 3.5rem;
+  margin-top: -5px;
+  text-shadow: 2px 2px 2px #000;
+}
