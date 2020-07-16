@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('../../passport');
 // const userController = require("../../controllers/userController");
+const userController = require('../../contollers/userController')
 
 // this route is just used to get the user basic info
 router.get('/user', userController.getUser)
