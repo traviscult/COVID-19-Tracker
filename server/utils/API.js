@@ -8,12 +8,13 @@ import axios from "axios";
  })
 
 
-
   axios.get('https://api-corona.azurewebsites.net/country/us/North%20Carolina/Wake', {
       
 
   })
 
- 3139e4af9e1fc8f449cc550fc440341da611e51e
+
+
+
 
   
