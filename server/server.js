@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const session = require('express-session');
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 const MongoStore = require('connect-mongo')(session);
 const dbConnection = require('./db'); // loads our connection to the mongo database
 
