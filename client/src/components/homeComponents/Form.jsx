@@ -5,6 +5,8 @@ import AUTH from '../../utils/AUTH';
 function SignupForm() {
   const [userObject, setUserObject] = useState({
     name: '',
+    age: '',
+    gender: '',
     email: '',
     password: '',
     redirectTo: null
@@ -25,6 +27,8 @@ function SignupForm() {
     AUTH.signup({
 
       name: userObject.name,
+      age: userObject.age,
+      gender: userObject.gender,
       email: userObject.email,
       password: userObject.password
     }).then(response => {
@@ -50,6 +54,20 @@ function SignupForm() {
             <input type="text" className="form-control" name="name" value={userObject.name} onChange={handleChange} placeholder="Enter your name" />
           </div>
           <div className="form-group">
+            <label for="age">Age</label>
+            <input type="text" className="form-control" name="age" value={userObject.age} onChange={handleChange} placeholder="Age" />
+          </div>
+          <div className="btn-group">
+            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Gender
+            </button>
+            <div className="dropdown-menu" aria-labelledby="dropdownMenu2"  value={userObject.gender} onChange={handleChange}>
+              <button className="dropdown-item" type="button">Male</button>
+              <button className="dropdown-item" type="button">Female</button>
+              <button className="dropdown-item" type="button">Prefer not to answer</button>
+            </div>
+          </div>
+          <div className="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input type="email" className="form-control" id="exampleInputEmail1" name="email" value={userObject.email} onChange={handleChange} aria-describedby="emailHelp" placeholder="Enter your email" />
 
@@ -57,6 +75,10 @@ function SignupForm() {
           <div className="form-group">
             <label for="exampleInputPassword1">Password</label>
             <input type="password" className="form-control" id="exampleInputPassword1" name="password" value={userObject.password} onChange={handleChange} placeholder="Enter you password" />
+          </div>
+          <div className="form-group">
+            <label for="exampleInputPassword1">Confirm Password</label>
+            <input type="password" className="form-control" id="exampleInputPassword1" name="confirmPassword" value={userObject.confirmPassword} onChange={handleChange} placeholder="Re-Enter you password" />
           </div>
 
           <button type="submit" onClick={handleSubmit} className="btn btn-primary mb-4">Sign Up</button>
