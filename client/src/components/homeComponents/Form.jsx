@@ -14,6 +14,7 @@ function SignupForm() {
   const [redirectTo, setRedirectTo] = useState(null);
 
   const handleChange = (event) => {
+    console.log(event.target.value)
     setUserObject({
       ...userObject,
       [event.target.name]: event.target.value
@@ -59,12 +60,12 @@ function SignupForm() {
           </div>
           <div className="btn-group">
             <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Gender
+              {userObject.gender || "gender"}
             </button>
-            <div className="dropdown-menu" aria-labelledby="dropdownMenu2"  value={userObject.gender} onChange={handleChange}>
-              <button className="dropdown-item" type="button">Male</button>
-              <button className="dropdown-item" type="button">Female</button>
-              <button className="dropdown-item" type="button">Prefer not to answer</button>
+            <div className="dropdown-menu" aria-labelledby="dropdownMenu2"  value={userObject.gender} onClick={handleChange}>
+              <button className="dropdown-item" type="button" name="gender" value="male">Male</button>
+              <button className="dropdown-item" type="button" name="gender" value="female">Female</button>
+              <button className="dropdown-item" type="button" name="gender" value="noAnswer">Prefer not to answer</button>
             </div>
           </div>
           <div className="form-group">
