@@ -27,6 +27,7 @@ module.exports = {
       });
       newUser.save((err, savedUser) => {
         if (err) return res.json(err);
+        console.log(savedUser);
         return res.json(savedUser);
       });
     });
