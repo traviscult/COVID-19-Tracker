@@ -5,6 +5,9 @@ import AUTH from '../../utils/AUTH';
 function SignupForm() {
   const [userObject, setUserObject] = useState({
     name: '',
+    age: '',
+    race: '',
+    gender: '',
     email: '',
     password: '',
     redirectTo: null
@@ -12,6 +15,7 @@ function SignupForm() {
   const [redirectTo, setRedirectTo] = useState(null);
 
   const handleChange = (event) => {
+    console.log(event.target.value)
     setUserObject({
       ...userObject,
       [event.target.name]: event.target.value
@@ -25,12 +29,15 @@ function SignupForm() {
     AUTH.signup({
 
       name: userObject.name,
+      age: userObject.age,
+      race: userObject.race,
+      gender: userObject.gender,
       email: userObject.email,
       password: userObject.password
     }).then(response => {
       // console.log(response);
       if (!response.data.errmsg) {
-        setRedirectTo('/');
+        setRedirectTo('/members');
       } else {
         console.log('duplicate');
       }
@@ -50,6 +57,34 @@ function SignupForm() {
             <input type="text" className="form-control" name="name" value={userObject.name} onChange={handleChange} placeholder="Enter your name" />
           </div>
           <div className="form-group">
+            <label for="age">Age</label>
+            <input type="text" className="form-control" name="age" value={userObject.age} onChange={handleChange} placeholder="Age" />
+          </div>
+          <div className="btn-group">
+            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {userObject.race || "Race"}
+            </button>
+            <div className="dropdown-menu" aria-labelledby="dropdownMenu2"  value={userObject.race} onClick={handleChange}>
+              <button className="dropdown-item" type="button" name="race" value="White">White</button>
+              <button className="dropdown-item" type="button" name="race" value="Hispanic">Hispanic/Latino</button>
+              <button className="dropdown-item" type="button" name="race" value="Black">Black/African American</button>
+              <button className="dropdown-item" type="button" name="race" value="Asian">Asian</button>
+              <button className="dropdown-item" type="button" name="race" value="AmericanIndian">American Indian/Alaska Native</button>
+              <button className="dropdown-item" type="button" name="race" value="Other">Other/Prefer not to say</button>
+            </div>
+          </div>
+          <br />
+          <div className="btn-group">
+            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {userObject.gender || "Gender"}
+            </button>
+            <div className="dropdown-menu" aria-labelledby="dropdownMenu2"  value={userObject.gender} onClick={handleChange}>
+              <button className="dropdown-item" type="button" name="gender" value="Male">Male</button>
+              <button className="dropdown-item" type="button" name="gender" value="Female">Female</button>
+              <button className="dropdown-item" type="button" name="gender" value="NoAnswer">Prefer not to answer</button>
+            </div>
+          </div>
+          <div className="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input type="email" className="form-control" id="exampleInputEmail1" name="email" value={userObject.email} onChange={handleChange} aria-describedby="emailHelp" placeholder="Enter your email" />
 
@@ -57,6 +92,10 @@ function SignupForm() {
           <div className="form-group">
             <label for="exampleInputPassword1">Password</label>
             <input type="password" className="form-control" id="exampleInputPassword1" name="password" value={userObject.password} onChange={handleChange} placeholder="Enter you password" />
+          </div>
+          <div className="form-group">
+            <label for="exampleInputPassword1">Confirm Password</label>
+            <input type="password" className="form-control" id="exampleInputPassword1" name="confirmPassword" value={userObject.confirmPassword} onChange={handleChange} placeholder="Re-Enter you password" />
           </div>
 
           <button type="submit" onClick={handleSubmit} className="btn btn-primary mb-4">Sign Up</button>
