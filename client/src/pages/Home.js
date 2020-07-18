@@ -2,18 +2,18 @@ import React from 'react';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import MainContents from '../components/homeComponents/MainContents';
+import './Pages.css';
 
 const Home = () => {
   return (
     <>
       <div className="container">
         <Header />
-        {/* Note: delete this div section below after setting is complete! */}
-        <div>
-          <h1 style={{ textAlign: "center", color: "brown" }}>Welcome to COVID-19 Tracker App </h1> <h5 style={{ textAlign: "center" }}>If you are a registered member, <span id="signIn">Sign In </span> here.</h5>
+        <div className="homePageContent">
+         <h2>Welcome to COVID-19 Tracker App </h2>
+    <h5>If you are a registered member, <span id="signIn"> Login </span> here.</h5>
+
           <hr />
-
-
         </div>
         <MainContents />
 
