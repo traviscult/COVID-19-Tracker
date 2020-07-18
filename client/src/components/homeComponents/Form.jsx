@@ -37,7 +37,7 @@ function SignupForm() {
     }).then(response => {
       // console.log(response);
       if (!response.data.errmsg) {
-        setRedirectTo('/search');
+        setRedirectTo('/members');
       } else {
         console.log('duplicate');
       }
