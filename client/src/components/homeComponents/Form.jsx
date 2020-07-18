@@ -6,6 +6,7 @@ function SignupForm() {
   const [userObject, setUserObject] = useState({
     name: '',
     age: '',
+    race: '',
     gender: '',
     email: '',
     password: '',
@@ -29,6 +30,7 @@ function SignupForm() {
 
       name: userObject.name,
       age: userObject.age,
+      race: userObject.race,
       gender: userObject.gender,
       email: userObject.email,
       password: userObject.password
@@ -60,12 +62,26 @@ function SignupForm() {
           </div>
           <div className="btn-group">
             <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {userObject.gender || "gender"}
+              {userObject.race || "Race"}
+            </button>
+            <div className="dropdown-menu" aria-labelledby="dropdownMenu2"  value={userObject.race} onClick={handleChange}>
+              <button className="dropdown-item" type="button" name="race" value="White">White</button>
+              <button className="dropdown-item" type="button" name="race" value="Hispanic">Hispanic/Latino</button>
+              <button className="dropdown-item" type="button" name="race" value="Black">Black/African American</button>
+              <button className="dropdown-item" type="button" name="race" value="Asian">Asian</button>
+              <button className="dropdown-item" type="button" name="race" value="AmericanIndian">American Indian/Alaska Native</button>
+              <button className="dropdown-item" type="button" name="race" value="Other">Other/Prefer not to say</button>
+            </div>
+          </div>
+          <br />
+          <div className="btn-group">
+            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {userObject.gender || "Gender"}
             </button>
             <div className="dropdown-menu" aria-labelledby="dropdownMenu2"  value={userObject.gender} onClick={handleChange}>
-              <button className="dropdown-item" type="button" name="gender" value="male">Male</button>
-              <button className="dropdown-item" type="button" name="gender" value="female">Female</button>
-              <button className="dropdown-item" type="button" name="gender" value="noAnswer">Prefer not to answer</button>
+              <button className="dropdown-item" type="button" name="gender" value="Male">Male</button>
+              <button className="dropdown-item" type="button" name="gender" value="Female">Female</button>
+              <button className="dropdown-item" type="button" name="gender" value="NoAnswer">Prefer not to answer</button>
             </div>
           </div>
           <div className="form-group">
