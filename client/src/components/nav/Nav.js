@@ -9,7 +9,7 @@ const Nav = (props) => {
     if (props.user === null) {
         console.log(props)
         greeting = <p>Hello guest</p>
-    } else if (props.user.firstName) {
+    } else if (props.user.Name) {
         greeting = (
             <Fragment>
                 Welcome back, <strong>{props.user.firstName}</strong>
