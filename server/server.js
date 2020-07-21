@@ -6,6 +6,9 @@ const MongoStore = require('connect-mongo')(session);
 const dbConnection = require('./db'); // loads our connection to the mongo database
 const routes = require("./routes")
 
+// DOTENV file for hiding sensitive data
+// require('dotenv').config();
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // app.use(require("./routes/api-routes.js"));

@@ -1,7 +1,7 @@
 {
-  "name": "test-project-3",
+  "name": "covid19-tracker-app",
   "version": "1.0.0",
-  "description": "This repo is to test files and folder created from scratch instead of using given templates.",
+  "description": "A group project of UNC Chapel Hill, NC, Bootcamp students",
   "main": "./server/server.js",
   "dependencies": {
     "axios": "^0.19.2",
@@ -34,6 +34,7 @@
     "url": "git+https://github.com/traviscult/project-3"
   },
   "author": "S Sharma, Joy Chen, Travis Cultreri, Cate Dunn, Britt Melia, Edrick Ngouyassa",
+
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/traviscult/project-3/issues"
