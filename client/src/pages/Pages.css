@@ -1,24 +1,30 @@
+body {
+  background-image: url("/../../../images/body-bg-img-500.jpg");
+  background-repeat: repeat;
+  /* background-size: cover; */
+}
+
 .homePageContent h2 {
-text-align: center;
-color: brown;
+  text-align: center;
+  color: brown;
 }
 
 .homePageContent h5 {
-text-align: center;
-color: #22075f;
-margin-top: 2rem;
+  text-align: center;
+  color: #22075f;
+  margin-top: 2rem;
 }
 
 .homePageContent #signIn {
-text-align: center;
-color: #007bff;
-cursor: pointer;
-font-weight: bold;
+  text-align: center;
+  color: #007bff;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .homePageContent #signIn:hover {
-color: brown;
-cursor: pointer;
-text-decoration: underline;
-opacity: .5;
+  color: brown;
+  cursor: pointer;
+  text-decoration: underline;
+  opacity: .5;
 }
