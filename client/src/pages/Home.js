@@ -4,7 +4,7 @@ import Footer from '../components/footer/Footer';
 import MainContents from '../components/homeComponents/MainContents';
 import './Pages.css';
 
-const Home = () => {
+const Home = (props) => {
   return (
     <>
       <div className="container">
@@ -15,7 +15,7 @@ const Home = () => {
 
           <hr />
         </div>
-        <MainContents />
+        <MainContents signUpUser={props.signUpUser}/>
 
         <Footer />
       </div>
