@@ -8,9 +8,6 @@ module.exports = {
             method: 'GET',
         })
             .then(response => {
-              // response.data.headers['Content-Type'];
-              //     console.log("headers", response.data.headers)
-              //    console.log("response2", response)
               console.log('respons', response);
               
             })
