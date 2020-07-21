@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import AUTH from '../../utils/AUTH';
+// import AUTH from '../../utils/AUTH';
+// import App from '../../App'
 
-function SignupForm() {
+function SignupForm(props) {
   const [userObject, setUserObject] = useState({
     name: '',
     age: '',
@@ -26,23 +27,35 @@ function SignupForm() {
     event.preventDefault();
     console.log("CLICKED")
     // TODO - validate!
-    AUTH.signup({
+    props.signUpUser({
 
       name: userObject.name,
       age: userObject.age,
       race: userObject.race,
       gender: userObject.gender,
       email: userObject.email,
-      password: userObject.password
-    }).then(response => {
-      // console.log(response);
-      if (!response.data.errmsg) {
-        setRedirectTo('/members');
-      } else {
-        console.log('duplicate');
-      }
-    });
+      password: userObject.password,
+      isLoggedIn: true
+    })
+    setRedirectTo('/members')
+    
+    ;
+    // AUTH.login({
+    //   name: userObject.name,
+    //   password: userObject.password
+    // }.then(response => {
+    //   console.log(response.data);
+    //   if (response.status === 200) {
+    //     console.log("LOGGED IN")
+    //     // update the state
+    //     // setLoggedIn(true);
+    //     // setUser(response.data.user);
+    //   }
+    // }));
   };
+  // if (redirectTo) {
+  //   return <Redirect to={{ pathname: redirectTo }} />
+  // }
   if (redirectTo) {
     return <Redirect to={{ pathname: redirectTo }} />
   }

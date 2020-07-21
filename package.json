@@ -21,16 +21,20 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server/server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/traviscult/project-3.git"
+    "url": "git+https://github.com/traviscult/project-3"
   },
-  "author": "Group Project",
+  "author": "S Sharma, Joy Chen, Travis Cultreri, Cate Dunn, Britt Melia, Edrick Ngouyassa",
+
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/traviscult/project-3/issues"
