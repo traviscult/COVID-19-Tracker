@@ -7,7 +7,7 @@ const MainContents = (props) => {
     <>
       <div className="row">
         <LeftSideBar />
-        <Form signUpUser={props.signUpUser}/>
+        <Form signUpUser={props.signUpUser} />
       </div>
     </>
   )
