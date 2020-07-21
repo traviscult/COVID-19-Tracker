@@ -10,7 +10,6 @@ export default class Search extends React.Component {
     }
 
    
-
     componentDidMount(){
         const state = "North%20Carolina"
         const county = "wake"
@@ -30,9 +29,6 @@ export default class Search extends React.Component {
         }
         
     )}
-
-
-   
 
     render() {
         return( 
