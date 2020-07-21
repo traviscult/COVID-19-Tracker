@@ -11,14 +11,8 @@ const userSchema = new Schema({
   gender: { type: String, unique: false },
   email: { type: String, unique: false, required: false },
   password: { type: String, unique: false, required: false },
-	users: [
-    {
-      // Store ObjectIds in the array
-      type: Schema.Types.ObjectId,
-      // The ObjectIds will refer to the ids in the places model
-      ref: 'User'
-	}
-]
+  isLoggedIn: { type: Boolean, default: false}
+ 
 });
 
 // Define schema methods

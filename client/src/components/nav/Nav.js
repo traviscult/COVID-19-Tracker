@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Nav = (props) => {
     let greeting;
-
+console.log("props in nav", props)
     if (props.user === null) {
         console.log(props)
         greeting = <p>Hello guest</p>
