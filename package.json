@@ -31,12 +31,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ssh1sharma/Test-Project-3.git"
+    "url": "git+https://github.com/traviscult/project-3"
   },
-  "author": "S Sharma",
+  "author": "S Sharma, Joy Chen, Travis Cultreri, Cate Dunn, Britt Melia, Edrick Ngouyassa",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ssh1sharma/Test-Project-3/issues"
+    "url": "https://github.com/traviscult/project-3/issues"
   },
-  "homepage": "https://github.com/ssh1sharma/Test-Project-3#readme"
+  "homepage": "https://github.com/traviscult/project-3#readme"
 }
