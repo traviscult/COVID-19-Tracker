@@ -9,7 +9,9 @@ console.log("props in nav", props)
     if (props.user === null) {
         console.log(props)
         greeting = <p>Hello guest</p>
+
     } else if (props.user.name) {
+
         greeting = (
             <Fragment>
                 Welcome back, <strong>{props.user.name}</strong>
