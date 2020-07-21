@@ -3,7 +3,8 @@ const db = require("../models");
 // Defining methods for the userController
 module.exports = {
   getUser: (req, res, next) => {
-    // console.log(req.user);
+    // console.log("GetUser being called in controller")
+    // console.log(req, 'get user');
     if (req.user) {
       return res.json({ user: req.user });
     } else {
@@ -11,7 +12,8 @@ module.exports = {
     }
   },
   register: (req, res) => {
-    const { name, age, race, gender, email, password } = req.body;
+    // console.log("REGISTER BEING CALLED")
+    const { name, age, race, gender, email, password, isLoggedIn } = req.body;
     // ADD VALIDATION
     db.User.findOne({ 'email': email }, (err, userMatch) => {
       if (userMatch) {
@@ -26,7 +28,8 @@ module.exports = {
         'race': race,
         'gender': gender,
         'email': email,
-        'password': password
+        'password': password,
+        'isLoggedIn': isLoggedIn
       });
       newUser.save((err, savedUser) => {
         if (err) return res.json(err);

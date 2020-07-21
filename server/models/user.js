@@ -11,6 +11,7 @@ const userSchema = new Schema({
 	gender: { type: String, unique: false },
   email: { type: String, unique: false, required: false },
   password: { type: String, unique: false, required: false },
+  isLoggedIn: { type: Boolean, default: false}
  
 });
 
