@@ -1,0 +1,29 @@
+.membersPageTitle {
+  text-align: center;
+  color: brown;
+  font-weight: bold;
+  text-shadow: 4px 4px 8px rgba(255, 255, 255, .5);
+  margin-bottom: 2rem;
+}
+
+.assessmentCol {
+  background-color: aliceblue;
+  background-color: #f5ecf0;
+  box-shadow: 2px 1px 30px rgb(98, 98, 98);
+  height: 500px;
+  overflow: scroll;
+  margin-bottom: 2rem;
+  border-top-left-radius: 20px;
+}
+
+.assessmentCol h5 {
+  text-align: center;
+  color: #22075f;
+  font-weight: bold;
+  margin-top: .5rem;
+}
+
+.assessmentCol h6 {
+  padding: 0 1rem;
+  text-align: center;
+}

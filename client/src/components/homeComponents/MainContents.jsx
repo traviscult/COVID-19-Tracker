@@ -5,9 +5,9 @@ import LeftSideBar from './LeftSideBar';
 const MainContents = (props) => {
   return (
     <>
-      <div className="row">
+      <div className="row mx-2">
         <LeftSideBar />
-        <Form signUpUser={props.signUpUser}/>
+        <Form signUpUser={props.signUpUser} />
       </div>
     </>
   )
