@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Home from './pages/home';
-import Search from './pages/search';
-import Result from './pages/result';
+import Home from './pages/Home';
+import Search from './pages/Search';
+import Result from './pages/Result';
 import Members from './pages/members'
 import Nav from './components/nav'
 import AUTH from './utils/AUTH';
