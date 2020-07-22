@@ -90,9 +90,9 @@ function SignupForm(props) {
             <input type="text" className="form-control" name="age" value={userObject.age} onChange={handleChange} placeholder="Age" />
           </div> */}
 
-          <div class="col-12 raceBtnWrapper">
+          <div className="col-12 raceBtnWrapper">
             <div className="btn-group">
-              <button className="btn btn-secondary dropdown-toggle raceBtn" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button className="btn btn-secondary dropdown-toggle raceBtn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {userObject.race || "Race"}
               </button>
               <div className="dropdown-menu" aria-labelledby="dropdownMenu2" value={userObject.race} onClick={handleChange}>
@@ -145,7 +145,7 @@ function SignupForm(props) {
             <div className="input-group-prepend">
               <span className="input-group-text">Confirm Password</span>
             </div>
-            <input type="password" className="form-control" id="exampleInputPassword1" name="confirmPassword" value={userObject.confirmPassword} onChange={handleChange} placeholder="Re-Enter you password" />
+            <input type="password" className="form-control" id="exampleInputPassword2" name="confirmPassword" value={userObject.confirmPassword} onChange={handleChange} placeholder="Re-Enter you password" />
           </div>
 
           {/* <div className="form-group">

@@ -33,7 +33,7 @@ circleIconTop"></i></button> */}
 
           </form>
 
-          <p className="text-dark" className="modalBottomText">COVID-19 Tracker &bull; A Corona Virus information tracking app </p>
+          <p className="text-dark modalBottomText">COVID-19 Tracker &bull; A Corona Virus information tracking app </p>
         </div>
       </div>
 
