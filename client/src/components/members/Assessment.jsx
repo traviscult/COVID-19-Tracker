@@ -25,7 +25,6 @@ const Assessment = () => {
 
     <div className="bg-warning assessmentCol">
       <h3>{questionsObject.text}</h3>
-
     </div>
   )
 }
