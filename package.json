@@ -1,7 +1,7 @@
 {
-  "name": "covid19-tracker-app",
+  "name": "test-project-3",
   "version": "1.0.0",
-  "description": "A group project of UNC Chapel Hill, NC, Bootcamp students",
+  "description": "This repo is to test files and folder created from scratch instead of using given templates.",
   "main": "./server/server.js",
   "dependencies": {
     "axios": "^0.19.2",

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Search from './pages/Search';
-import Result from './pages/Result';
+import Home from './pages/home';
+import Search from './pages/search';
+import Result from './pages/result';
 import Members from './pages/members'
 import Nav from './components/nav'
 import AUTH from './utils/AUTH';
@@ -11,39 +11,39 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
   // const [redirectTo, setRedirectTo] = useState(null);
-  
+
   useEffect(() => {
     AUTH.getUser().then(response => {
-        console.log(response, "response");
-        if (!!response.data.user) {
-          setLoggedIn(true);
-          setUser(response.data.user);
-        } else {
-          setLoggedIn(false);
-          setUser(null);
-        }
-      });
-
-      return () => {
+      console.log(response, "response");
+      if (!!response.data.user) {
+        setLoggedIn(true);
+        setUser(response.data.user);
+      } else {
         setLoggedIn(false);
         setUser(null);
-      };
+      }
+    });
+
+    return () => {
+      setLoggedIn(false);
+      setUser(null);
+    };
   }, []);
 
-	const logout = (event) => {
+  const logout = (event) => {
     event.preventDefault();
-    
-		AUTH.logout().then(response => {
-			console.log(response.data);
-			if (response.status === 200) {
-				setLoggedIn(false);
-        setUser(null);
-			}
-		});
-	};
 
-	const login = (name, password) => {
-		AUTH.login(name, password).then(response => {
+    AUTH.logout().then(response => {
+      console.log(response.data);
+      if (response.status === 200) {
+        setLoggedIn(false);
+        setUser(null);
+      }
+    });
+  };
+
+  const login = (name, password) => {
+    AUTH.login(name, password).then(response => {
       console.log(response.data);
       if (response.status === 200) {
         // update the state
@@ -52,7 +52,7 @@ function App() {
       }
     });
   };
-  
+
   const signUpUser = (userObject) => {
     // event.preventDefault();
     console.log("CLICKED")
@@ -77,42 +77,39 @@ function App() {
         console.log('duplicate');
       }
     });
- 
+
   };
 
-  
+
 
   return (
     <>
-     
-      <div class="container-fluid mx-0 px-0">
-      { !loggedIn && (
-        <BrowserRouter>
-        
-       
-          <Route exact path="/" component={() => <Home signUpUser={signUpUser}/>} />
-          <Route exact path="/search" component={Search} />
-          <Route exact path="/result" component={Result} />
-          <Route exact path="/members" component={Members} />
-        </BrowserRouter>
-      
 
-      )}
+      <div className="container-fluid mx-0 px-0">
 
-{ loggedIn && (
-        <BrowserRouter>
-        
-        <Nav user={user} logout={logout}/>
-          <Route exact path="/" component={Members} />
-          <Route exact path="/search" component={Search} />
-          <Route exact path="/result" component={Result} />
-          <Route exact path="/members" component={Members} />
-        </BrowserRouter>
-      
+        {!loggedIn && (
+          <BrowserRouter>
+            <Route exact path="/" component={() => <Home signUpUser={signUpUser} />} />
+            <Route exact path="/search" component={Search} />
+            <Route exact path="/result" component={Result} />
+            <Route exact path="/members" component={Members} />
+          </BrowserRouter>
 
-      )}
-      </div> 
-      
+
+        )}
+
+        {loggedIn && (
+          <BrowserRouter>
+            <Nav user={user} logout={logout} />
+            <Route exact path="/" component={Members} />
+            <Route exact path="/search" component={Search} />
+            <Route exact path="/result" component={Result} />
+            <Route exact path="/members" component={Members} />
+          </BrowserRouter>
+        )}
+
+      </div>
+
     </>
 
   );

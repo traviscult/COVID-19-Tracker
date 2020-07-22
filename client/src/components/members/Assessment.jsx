@@ -1,5 +1,7 @@
+
 import React, {useState, useEffect} from 'react'
 import API from "../../utils/API"
+
 
 const Assessment = () => {
   const [questionsObject, setQuestionsObject] = useState({})
@@ -20,9 +22,9 @@ const Assessment = () => {
 
 
   return (
+
     <div className="bg-warning assessmentCol">
       <h3>{questionsObject.text}</h3>
-      <p>question area{questionsObject.item}</p>
     </div>
   )
 }
