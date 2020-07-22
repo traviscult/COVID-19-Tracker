@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto+Condensed&display=swap');
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -10,8 +11,11 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 400;
+  font-family: 'Lato', sans-serif;
+}
+
+p {
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 img {

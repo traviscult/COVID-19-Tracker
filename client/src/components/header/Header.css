@@ -3,15 +3,16 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 18vh;
-  margin-bottom: 2rem;
+  height: 20vh;
+  margin: 0;
+  padding: 0;
 }
 
 header h1 {
   text-transform: uppercase;
   color: #faebfa;
   text-shadow: 4px 2px 4px #271a27;
-  margin: 1rem 0 0 3rem;
+  margin: 2.5rem 0 0 3rem;
 }
 
 header p {

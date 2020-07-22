@@ -1,0 +1,23 @@
+.resultPageTitle {
+  text-align: center;
+  color: brown;
+  font-weight: bold;
+  text-shadow: 4px 4px 8px rgba(255, 255, 255, .5);
+  margin-bottom: 2rem;
+}
+
+.resultLeftCol {
+  background-color: #f6c486;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultRightCol {
+  background-color: #bcf3f0;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
