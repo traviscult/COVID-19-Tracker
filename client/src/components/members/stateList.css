@@ -1,0 +1,28 @@
+.stateListWrapper {
+  background-color: #dbd6d6;
+  background-color: #fff;
+  padding: .1rem;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stateList {
+  background-color: #f4f5e7;
+  border-radius: 10px;
+  margin-left: 4rem;
+}
+
+.stateSubmitBtn {
+  margin-left: 5rem;
+  background-color: #dedede;
+  background-color: #f4f5e7;
+  border-radius: 10px;
+}
+
+.stateSubmitBtn:hover {
+  background-color: #8b8989;
+  color: #fff;
+  border-radius: 10px;
+}
