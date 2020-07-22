@@ -10,7 +10,7 @@ module.exports = {
             }
          }).then(response => {
            console.log("response", response)
-            console.log("response data", response.data)
+           console.log("response data", response.data)
          }) 
     },
     questionsPost: function(res){

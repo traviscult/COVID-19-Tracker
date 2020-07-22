@@ -1,9 +1,9 @@
 const router = require("express").Router();
 const sypmtomChekerController = require("../../contollers/symptomController");
-const symptomController = require("../../contollers/symptomController");
 
-router.get("/symptom", (req, res) => {
- sypmtomChekerController.questionsPost(res)
+router.get("/", (req, res) => {
+    console.log("sympton controller", res)
+    sypmtomChekerController.questionsPost(res)
 });
 
 module.exports = router
