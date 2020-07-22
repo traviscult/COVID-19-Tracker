@@ -16,7 +16,7 @@ function SignupForm(props) {
   const [redirectTo, setRedirectTo] = useState(null);
 
   const handleChange = (event) => {
-    console.log(event.target.value)
+    // console.log(event.target.value)
     setUserObject({
       ...userObject,
       [event.target.name]: event.target.value

@@ -42,8 +42,8 @@ function App() {
 		});
 	};
 
-	const login = (name, password) => {
-		AUTH.login(name, password).then(response => {
+	const login = (email, password) => {
+		AUTH.login(email, password).then(response => {
       console.log(response.data);
       if (response.status === 200) {
         // update the state
@@ -90,7 +90,7 @@ function App() {
         <BrowserRouter>
         
        
-          <Route exact path="/" component={() => <Home signUpUser={signUpUser}/>} />
+          <Route exact path="/" component={() => <Home signUpUser={signUpUser} login={login}/>} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/result" component={Result} />
           <Route exact path="/members" component={Members} />

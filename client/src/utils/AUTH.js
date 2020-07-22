@@ -3,7 +3,6 @@ import axios from "axios";
 export default {
   // Gets user info
   getUser: function() {
-    console.log("this is getting called")
     return axios.get('/auth/user');
   },
   // Logs the user out
@@ -12,6 +11,7 @@ export default {
   },
   // Log the user in
   login: function(email, password) {
+    console.log(email, password)
     return axios.post('/auth/login', { email, password });
   },
   // New user registration

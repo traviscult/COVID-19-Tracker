@@ -11,7 +11,7 @@ const Home = (props) => {
         <Header />
         <div className="homePageContent">
          <h2>Welcome to COVID-19 Tracker App </h2>
-    <h5>If you are a registered member, <span id="signIn"> Login </span> here.</h5>
+    <h5>If you are a registered member, please login. Otherwise sign up below</h5>
 
           <hr />
         </div>
