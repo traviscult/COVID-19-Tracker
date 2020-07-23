@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
-const Login = (props) => {
+const Login = ({login}) => {
   const [userObject, setUserObject] = useState({
     email: '',
     password: ''
@@ -17,13 +17,14 @@ const Login = (props) => {
 	};
 
 	const handleSubmit = (event) => {
-		event.preventDefault();
-		props.login({
-      email: userObject.email, 
-      password: userObject.password,
-      isLoggedIn: true
-    });
-		setRedirectTo('/members');
+    event.preventDefault();
+    
+    const isLoggedin = login(userObject.email, userObject.password);
+    if (isLoggedin) {
+      setRedirectTo('/members');
+    }
+    console.log("wrong")
+		
   };
   
   if (redirectTo) {

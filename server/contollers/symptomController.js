@@ -9,8 +9,8 @@ module.exports = {
                 "App-Key": 'ea2e478aeea48ed264c553324544937e' 
             }
          }).then(response => {
-           console.log("response", response)
-           console.log("response data", response.data)
+          //  console.log("response", response)
+          //  console.log("response data", response.data)
          }) 
     },
     questionsPost: function(res){
@@ -32,8 +32,8 @@ module.exports = {
               // response.data.headers['Content-Type'];
               //     console.log("headers", response.data.headers)
               //    console.log("response2", response)
-              console.log('response2 data', response.data);
-              console.log(response.data.question.items)
+              // console.log('response2 data', response.data);
+              // console.log(response.data.question.items)
               return res.json(response.data)
             })
             .catch(function (error) {

@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     AUTH.getUser().then(response => {
-      console.log(response, "response");
+      // console.log(response, "response");
       if (!!response.data.user) {
         setLoggedIn(true);
         setUser(response.data.user);
@@ -34,7 +34,7 @@ function App() {
     event.preventDefault();
 
     AUTH.logout().then(response => {
-      console.log(response.data);
+      // console.log(response.data);
       if (response.status === 200) {
         setLoggedIn(false);
         setUser(null);
@@ -44,12 +44,14 @@ function App() {
 
 	const login = (email, password) => {
 		AUTH.login(email, password).then(response => {
-      console.log(response.data);
+      // console.log(response.data);
       if (response.status === 200) {
         // update the state
         setLoggedIn(true);
         setUser(response.data.user);
+        return true
       }
+      return false
     });
   };
 
@@ -67,7 +69,7 @@ function App() {
       password: userObject.password,
       isLoggedIn: true
     }).then(response => {
-      console.log(response);
+      // console.log(response);
       if (!response.data.errmsg) {
         console.log("LOGGED")
         setLoggedIn(true);
