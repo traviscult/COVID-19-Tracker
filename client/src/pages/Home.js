@@ -16,14 +16,12 @@ const Home = (props) => {
         <p className="text-info mb-4 pt-0 text-center">Home page is the sign in and sign up page, so the navbar is temporary for development purpose only.  </p>
 
         <div className="homePageContent">
-          <h2>Welcome to COVID-19 Tracker </h2>
-          {/* <p>If you are a registered member, <span id="signIn"> Login </span> here.</p> */}
-
-          <Modal />
+         <h2>Welcome to COVID-19 Tracker App </h2>
+    <h5>If you are a registered member, please login. Otherwise sign up below</h5>
 
           <hr />
         </div>
-        <MainContents signUpUser={props.signUpUser} />
+        <MainContents login={props.login} signUpUser={props.signUpUser} />
 
         <Footer />
       </div>

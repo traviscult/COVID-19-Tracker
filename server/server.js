@@ -1,14 +1,17 @@
 const express = require('express');
+const morgan = require('morgan');
 const app = express();
 const session = require('express-session');
 const PORT = process.env.PORT || 3001;
 const MongoStore = require('connect-mongo')(session);
 const dbConnection = require('./db'); // loads our connection to the mongo database
-const routes = require("./routes")
+const routes = require("./routes");
+const passport = require('./passport');
 
 // DOTENV file for hiding sensitive data
 // require('dotenv').config();
 
+app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // app.use(require("./routes/api-routes.js"));
@@ -18,6 +21,10 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
+
+// Passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(routes)
 
