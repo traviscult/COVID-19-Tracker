@@ -1,7 +1,8 @@
 
 import React, {useState, useEffect} from 'react'
 import API from "../../utils/API"
-import Questionnaire from './Questionnaire';
+import './questionnaire.css';
+// import Questionnaire from './Questionnaire';
 
 
 const Assessment = () => {
@@ -60,8 +61,10 @@ const Assessment = () => {
             <span className="checkmark"></span>
           </label>
         </li>
+        
 
         </ul>
+        <button id="submit" type="button" class="btn nextBtn">submit</button>
       {/* <p>{questionsObject.items[0] ? questionsObject.items[0].name : null }</p> */}
   {/* <p>{questionsObject.items[0] ? questionsObject.items[0].choices : null}</p> */}
     </div>
