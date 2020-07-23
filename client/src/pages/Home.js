@@ -21,7 +21,7 @@ const Home = (props) => {
 
           <hr />
         </div>
-        <MainContents signUpUser={props.signUpUser} />
+        <MainContents login={props.login} signUpUser={props.signUpUser} />
 
         <Footer />
       </div>
