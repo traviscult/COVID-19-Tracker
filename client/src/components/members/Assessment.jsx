@@ -15,11 +15,11 @@ const Assessment = () => {
   useEffect(() => {
     console.log("This is being called")
     API.getQuestions().then(res => {
-      console.log("assessment", res)
+      // console.log("assessment", res)
       const response = res.data.question
-      console.log("useEffect res", response)
+      // console.log("useEffect res", response)
       setQuestionsObject(response)
-      console.log("questions", questionsObject)
+      // console.log("questions", questionsObject)
     })
 
   },[])

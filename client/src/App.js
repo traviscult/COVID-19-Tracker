@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     AUTH.getUser().then(response => {
-      console.log(response, "response");
+      // console.log(response, "response");
       if (!!response.data.user) {
         setLoggedIn(true);
         setUser(response.data.user);
@@ -34,7 +34,7 @@ function App() {
     event.preventDefault();
 
     AUTH.logout().then(response => {
-      console.log(response.data);
+      // console.log(response.data);
       if (response.status === 200) {
         setLoggedIn(false);
         setUser(null);
@@ -42,14 +42,16 @@ function App() {
     });
   };
 
-  const login = (name, password) => {
-    AUTH.login(name, password).then(response => {
-      console.log(response.data);
+	const login = (email, password) => {
+		AUTH.login(email, password).then(response => {
+      // console.log(response.data);
       if (response.status === 200) {
         // update the state
         setLoggedIn(true);
         setUser(response.data.user);
+        return true
       }
+      return false
     });
   };
 
@@ -67,7 +69,7 @@ function App() {
       password: userObject.password,
       isLoggedIn: true
     }).then(response => {
-      console.log(response);
+      // console.log(response);
       if (!response.data.errmsg) {
         console.log("LOGGED")
         setLoggedIn(true);
@@ -84,32 +86,35 @@ function App() {
 
   return (
     <>
+     
+      <div class="container-fluid mx-0 px-0">
+      { !loggedIn && (
+        <BrowserRouter>
+        
+       
+          <Route exact path="/" component={() => <Home signUpUser={signUpUser} login={login}/>} />
+          <Route exact path="/search" component={Search} />
+          <Route exact path="/result" component={Result} />
+          <Route exact path="/members" component={Members} />
+        </BrowserRouter>
+      
 
-      <div className="container-fluid mx-0 px-0">
+      )}
 
-        {!loggedIn && (
-          <BrowserRouter>
-            <Route exact path="/" component={() => <Home signUpUser={signUpUser} />} />
-            <Route exact path="/search" component={Search} />
-            <Route exact path="/result" component={Result} />
-            <Route exact path="/members" component={Members} />
-          </BrowserRouter>
+{ loggedIn && (
+        <BrowserRouter>
+        
+        <Nav user={user} logout={logout}/>
+          <Route exact path="/" component={Members} />
+          <Route exact path="/search" component={Search} />
+          <Route exact path="/result" component={Result} />
+          <Route exact path="/members" component={Members} />
+        </BrowserRouter>
+      
 
-
-        )}
-
-        {loggedIn && (
-          <BrowserRouter>
-            <Nav user={user} logout={logout} />
-            <Route exact path="/" component={Members} />
-            <Route exact path="/search" component={Search} />
-            <Route exact path="/result" component={Result} />
-            <Route exact path="/members" component={Members} />
-          </BrowserRouter>
-        )}
-
-      </div>
-
+      )}
+      </div> 
+      
     </>
 
   );

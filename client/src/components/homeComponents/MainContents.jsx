@@ -1,13 +1,13 @@
 import React from 'react'
 import Form from './Form'
-import LeftSideBar from './LeftSideBar';
+import Login from './Login';
 
 const MainContents = (props) => {
   return (
     <>
-      <div className="row mx-2">
-        <LeftSideBar />
-        <Form signUpUser={props.signUpUser} />
+      <div className="row">
+        <Login login={props.login}/>
+        <Form signUpUser={props.signUpUser}/>
       </div>
     </>
   )
