@@ -2,7 +2,7 @@
   "name": "test-project-3",
   "version": "1.0.0",
   "description": "This repo is to test files and folder created from scratch instead of using given templates.",
-  "main": "./server/server.js",
+  "main": "./server.js",
   "dependencies": {
     "axios": "^0.19.2",
     "bcrypt": "^5.0.0",
