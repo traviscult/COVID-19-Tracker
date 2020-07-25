@@ -8,12 +8,8 @@
 
 ![COVID-19 Tracker App Screenshot](https://github.com/ssh1sharma/Test-Project-3/blob/master/client/public/images/landing-screenshot.JPG)
 
-<!-- This is commented out for now. Need to uncomment just few days before presentation. -->
-
 ### Credits:
 
-<!--
 - Covid-19 logo: cdc.gov
 - API: corona.azure-api.net
 - Map: react-usa-map
--->
