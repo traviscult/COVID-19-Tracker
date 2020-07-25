@@ -64,7 +64,7 @@ const Assessment = () => {
         
 
         </ul>
-        <button id="submit" type="button" class="btn nextBtn">submit</button>
+        <button id="submit" type="button" className="btn nextBtn">submit</button>
       {/* <p>{questionsObject.items[0] ? questionsObject.items[0].name : null }</p> */}
   {/* <p>{questionsObject.items[0] ? questionsObject.items[0].choices : null}</p> */}
     </div>
