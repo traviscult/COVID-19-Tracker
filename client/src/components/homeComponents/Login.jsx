@@ -23,7 +23,8 @@ const Login = ({login}) => {
     if (isLoggedin) {
       setRedirectTo('/members');
     }
-    console.log("wrong")
+    console.log("wrong email or password");
+
 		
   };
   
@@ -44,7 +45,7 @@ const Login = ({login}) => {
             <label for="password">Password</label>
             <input type="password" className="form-control" name="password" value={userObject.password} onChange={handleChange} placeholder="Password" />
           </div>
-          <button type="submit" onClick={handleSubmit} className="btn btn-primary mb-4">Sign Up</button>
+          <button type="submit" onClick={handleSubmit} className="btn btn-primary mb-4">Login</button>
         </form>
 
       </div>
