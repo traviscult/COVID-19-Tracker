@@ -1,12 +1,12 @@
-.homePageContent h2 {
+.homePageContent h {
 text-align: center;
 color: brown;
 }
 
 .homePageContent h5 {
 text-align: center;
-color: #22075f;
-margin-top: 2rem;
+color: #075f;
+margin-top: rem;
 }
 
 .homePageContent #signIn {
