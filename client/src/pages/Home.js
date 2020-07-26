@@ -4,7 +4,7 @@ import Footer from '../components/footer/Footer';
 import MainContents from '../components/homeComponents/MainContents';
 import './Pages.css';
 import Navbar from '../components/navigation/Navbar';
-import Modal from '../components/homeComponents/Modal';
+// import Modal from '../components/homeComponents/Modal';
 
 const Home = (props) => {
   return (
