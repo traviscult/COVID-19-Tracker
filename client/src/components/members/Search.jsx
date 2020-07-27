@@ -1,5 +1,6 @@
 import React from 'react';
-import axios from "axios"
+import axios from "axios";
+import Map from './Map'
 
 
 export default class Search extends React.Component {
@@ -65,8 +66,7 @@ export default class Search extends React.Component {
             <Map
                 province={this.provinceCallback}
                 counties={this.countylistCallback}
-                county={this.countyCallback}
-               
+                county={this.countyCallback}    
             />
             <p>State: {this.state.province}</p>
             <p>County: {this.state.county}</p>

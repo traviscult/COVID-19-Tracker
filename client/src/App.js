@@ -6,6 +6,7 @@ import Result from './pages/Result';
 import Members from './pages/members'
 import Nav from './components/nav'
 import AUTH from './utils/AUTH';
+import Map from './components/members/Map'
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -93,7 +94,7 @@ function App() {
         
        
           <Route exact path="/" component={() => <Home signUpUser={signUpUser} login={login}/>} />
-          <Route exact path="/search" component={Search} />
+          <Route exact path="/search" component={Search}/>
           <Route exact path="/result" component={Result} />
           <Route exact path="/members" component={Members} />
         </BrowserRouter>
@@ -108,7 +109,7 @@ function App() {
           <Route exact path="/" component={Members} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/result" component={Result} />
-          <Route exact path="/members" component={Members} />
+          <Route exact path="/members" component={Members}/>
         </BrowserRouter>
       
 
