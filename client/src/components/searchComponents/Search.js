@@ -1,37 +1,46 @@
 import React from 'react';
 import axios from "axios"
 
+
 export default class Search extends React.Component {
+    
     state = {
-        states: [],
-        counties: [],
-        deaths: [],
-        active: []
+        province: '',
+        county: '',
+        deaths: '',
+        active: '',
+        counties: ['']
     }
 
     async componentDidUpdate(){
-        this.getData();
+        this.getProvince();
+        // this.getCounty();
     }
         
-    
-    async getData() {
-        const county = "wake";
-        let res = await axios.get("https://corona.azure-api.net/country/us/" + this.state.provinces + "/" + county);
-        if (res.data.Province_State !== this.state.provinces){
+    //calling state API. If a new state is clicked, the province state updates with that State's name
+    async getProvince() {
+        let res = await axios.get("https://corona.azure-api.net/country/us/" + this.state.province);
+        let countylist  = res.data.City.map(city => city.City)
+        if (res.data.Province_State !== this.state.province){
             this.setState({ 
-                county: res.data.City, 
-                deaths: res.data.Deaths,
-                active: res.data.Active,
-                provinces: res.data.Province_State 
-            })
+                province: res.data.Province_State, 
+                counties: res.data.City.map(city => city.City)
+            }) 
+         
         }
+        console.log("state response:", res.data)
+        console.log("state name:", this.state.province)
+        console.log("list of counties:", countylist)
+        console.log("actual county list:", this.state.counties)
+     
 
     }
+
 
 
     provinceCallback = (province) => {
         this.setState({
-            provinces: province,
+            province: province,
         })
     }
 
@@ -40,7 +49,14 @@ export default class Search extends React.Component {
             county: county
         })
     }
-    
+
+    countylistCallback = (counties) => {
+        this.setState({
+            counties: counties
+        })
+    }
+
+
 
 
     render() {
@@ -48,13 +64,17 @@ export default class Search extends React.Component {
             <div>
             <Map
                 province={this.provinceCallback}
+                counties={this.countylistCallback}
                 county={this.countyCallback}
+               
             />
-            <p>State: {this.state.provinces}</p>
+            <p>State: {this.state.province}</p>
             <p>County: {this.state.county}</p>
             <p>Deaths: {this.state.deaths}</p>
             <p>Active Cases: {this.state.active}</p>
+            <p>Counties:</p>
             </div>
         )   
-    }  
+    }      
+    
 }
