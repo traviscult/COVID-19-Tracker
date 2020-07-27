@@ -6,7 +6,7 @@ import Result from './pages/Result';
 import Members from './pages/members'
 import Nav from './components/nav'
 import AUTH from './utils/AUTH';
-import Map from './components/members/Map'
+
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
