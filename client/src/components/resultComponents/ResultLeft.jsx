@@ -1,6 +1,7 @@
 import React from 'react';
 import './result.css';
-import axios from "axios"
+import axios from "axios";
+
 
 export default class ResultLeft extends React.Component {
   state = {
@@ -12,13 +13,22 @@ export default class ResultLeft extends React.Component {
 
  
   componentDidMount(){
-      const APIKey = "161d83da2a6f45d5a125daa9f91abfae"
+      const APIKey = "161d83da2a6f45d5a125daa9f91abfae";
+      
+      const dt = new Date();
+
+   const year = dt.getFullYear();
+    const month = (dt.getMonth()).toString().padStart(2, "0");
+    const day = dt.getDate().toString().padStart(2, "0");
+    const lastMonth = year + '-' + month + '-' + day
+
+console.log(year + '/' + month + '/' + day);
       // const county = "wake"
-      axios.get("https://newsapi.org/v2/top-headlines?q=coronavirus&from=2020-06-25&language=en&apiKey=" + APIKey)
+      axios.get("https://newsapi.org/v2/top-headlines?q=coronavirus&from=" + lastMonth +"&language=en&apiKey=" + APIKey)
       .then(res => {
           // for (let i = 0; i < 5; i++) {
             // const element = array[i];
-            
+            // console.log(lastMonth)
           
           console.log("response", res.data.articles)
           this.setState({source: res.data.articles})
@@ -26,7 +36,7 @@ export default class ResultLeft extends React.Component {
           // this.setState({author: res.data.articles[i].author})
           // this.setState({source: res.data.articles[i].source.name})
           // this.setState({url: res.data.articles[i].url})
-          // console.log(this.state.source)
+          console.log(this.state.source)
         // }
       })
       };
@@ -36,7 +46,7 @@ export default class ResultLeft extends React.Component {
   render() {
       return( 
           <div>
-           
+         
               {this.state.source.map((article, idx) => {
                 if (idx<10) {
                   return (
