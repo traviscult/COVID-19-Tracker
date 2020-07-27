@@ -1,33 +1,33 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
-const Login = ({login}) => {
+const Login = ({ login }) => {
   const [userObject, setUserObject] = useState({
     email: '',
     password: ''
   });
   const [redirectTo, setRedirectTo] = useState(null);
 
-	const handleChange = (event) => {
+  const handleChange = (event) => {
     console.log(event.target.value)
-		setUserObject({
+    setUserObject({
       ...userObject,
-			[event.target.name]: event.target.value
-		});
-	};
+      [event.target.name]: event.target.value
+    });
+  };
 
-	const handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    
+
     const isLoggedin = login(userObject.email, userObject.password);
     if (isLoggedin) {
       setRedirectTo('/members');
     }
     console.log("wrong email or password");
 
-		
+
   };
-  
+
   if (redirectTo) {
     return <Redirect to={{ pathname: redirectTo }} />
   }
@@ -36,7 +36,7 @@ const Login = ({login}) => {
     <>
       <div className="col-12 col-md-6">
 
-      <form>
+        <form>
           <div className="form-group">
             <label for="email">Email</label>
             <input type="text" className="form-control" name="email" value={userObject.email} onChange={handleChange} placeholder="Email" />
