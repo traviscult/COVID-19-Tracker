@@ -3,6 +3,7 @@ import axios from "axios";
 import Map from './Map'
 
 
+
 export default class Search extends React.Component {
     
     state = {
@@ -13,22 +14,20 @@ export default class Search extends React.Component {
         counties: ['']
     }
 
-    async componentDidUpdate(){
-        this.getProvince();
-        // this.getCounty();
-    }
+
         
     //calling state API. If a new state is clicked, the province state updates with that State's name
-    async getProvince() {
-        let res = await axios.get("https://corona.azure-api.net/country/us/" + this.state.province);
+    async getProvince(province) {
+        
+        let res = await axios.get("https://corona.azure-api.net/country/us/" + province);
         let countylist  = res.data.City.map(city => city.City)
-        if (res.data.Province_State !== this.state.province){
+        
             this.setState({ 
                 province: res.data.Province_State, 
-                counties: res.data.City.map(city => city.City)
+                counties: countylist
             }) 
          
-        }
+        
         console.log("state response:", res.data)
         console.log("state name:", this.state.province)
         console.log("list of counties:", countylist)
@@ -40,9 +39,11 @@ export default class Search extends React.Component {
 
 
     provinceCallback = (province) => {
+        console.log("province", province)
         this.setState({
             province: province,
         })
+        this.getProvince(province)
     }
 
     countyCallback = (county) => {
@@ -66,7 +67,8 @@ export default class Search extends React.Component {
             <Map
                 province={this.provinceCallback}
                 counties={this.countylistCallback}
-                county={this.countyCallback}    
+                county={this.countyCallback}
+               
             />
             <p>State: {this.state.province}</p>
             <p>County: {this.state.county}</p>
