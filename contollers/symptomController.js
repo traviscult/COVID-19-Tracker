@@ -1,5 +1,5 @@
 const axios = require ("axios");
-const db = require("../models");
+const db = require("../models/user");
 
 
 module.exports = {
@@ -24,8 +24,8 @@ module.exports = {
               //   'Content-Type': 'application/json'
             },
             data: {
-              sex: 'male',
-              age: 30,
+              sex: "male",
+              age: 20,
               evidence: []
             }
           })
