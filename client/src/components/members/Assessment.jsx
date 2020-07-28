@@ -9,14 +9,14 @@ const Assessment = () => {
   const [questionsObject, setQuestionsObject] = useState({
     items: [],
     text: "",
-    choisces: []
+    choices: []
   })
-
+  console.log(questionsObject)
 
   useEffect(() => {
     console.log("This is being called")
     API.getQuestions().then(res => {
-      // console.log("assessment", res)
+      console.log("assessment", res.data)
       const response = res.data.question
       // console.log("useEffect res", response)
       setQuestionsObject(response)
@@ -25,7 +25,23 @@ const Assessment = () => {
 
   },[])
 
+  const groupMultiple = (items) => {
+  console.log("what we are printing", questionsObject.items)
+  return <ul>{questionsObject.items.map(question => <label className="checkText">{question.name}<input type="checkbox" /><span className="checkmark"></span></label>)}</ul>
+  }
 
+  const groupSingle = (items) => {
+    return <ul>{questionsObject.items.map(question => <label className="checkText">{question.name}<input type="checkbox" /><span className="checkmark"></span></label>)}</ul>
+
+  }
+
+  const single = () => {
+    return  <div>
+    <button type="button" data-value="true" className="next-question btn btn-success">Yes</button>
+    <button type="button" data-value="false" className="next-question btn btn-danger">No</button>
+    <button type="button" data-value="unknown" className="next-question btn btn-info">Skip question</button>
+  </div>
+  }
 
   return (
 
@@ -36,37 +52,13 @@ const Assessment = () => {
       {/* <Questionnaire /> */}
       <h4>{questionsObject.text}</h4>
       <br></br>
-      <ul>
-      <li>
-          <label className="checkText"> {questionsObject.items[0] ? questionsObject.items[0].name : null }
-  <input type="checkbox" />
-            <span className="checkmark"></span>
-          </label>
-        </li>
-        <li>
-          <label className="checkText"> {questionsObject.items[1] ? questionsObject.items[1].name : null }
-  <input type="checkbox" />
-            <span className="checkmark"></span>
-          </label>
-        </li>
-        <li>
-          <label className="checkText"> {questionsObject.items[2] ? questionsObject.items[2].name : null }
-  <input type="checkbox" />
-            <span className="checkmark"></span>
-          </label>
-        </li>
-        <li>
-          <label className="checkText"> {questionsObject.items[3] ? questionsObject.items[3].name : null }
-  <input type="checkbox" />
-            <span className="checkmark"></span>
-          </label>
-        </li>
-        
-
-        </ul>
-        <button id="submit" type="button" className="btn nextBtn">submit</button>
-      {/* <p>{questionsObject.items[0] ? questionsObject.items[0].name : null }</p> */}
-  {/* <p>{questionsObject.items[0] ? questionsObject.items[0].choices : null}</p> */}
+      {groupMultiple()}
+      
+      
+  {/* <ul>{questionsObject.items.map(question => <label className="checkText">{question.name}<input type="checkbox" /><span className="checkmark"></span></label>)}</ul>
+  {console.log("what we are printing", questionsObject.items)} */}
+  
+        <button id="submit" type="button" className="btn nextBtn btn-primary">submit</button>
     </div>
   )
 }
