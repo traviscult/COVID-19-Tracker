@@ -1,7 +1,6 @@
 const axios = require("axios");
 const db = require("../models/user");
 
-
 module.exports = {
   questions: function (res) {
     axios.get('https://api.infermedica.com/covid19/symptoms', {
