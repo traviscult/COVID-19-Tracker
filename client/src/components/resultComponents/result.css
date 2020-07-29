@@ -1,3 +1,20 @@
+.resultContentWrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.newsCol {
+  padding: 2rem;
+  border: 1px solid #999;
+  background-color: rgba(255, 255, 255, .4);
+  margin: 0 auto;
+  margin: .5rem;
+  border-radius: 10px;
+}
+
 .resultPageTitle {
   text-align: center;
   color: brown;
@@ -6,18 +23,16 @@
   margin-bottom: 2rem;
 }
 
-.resultLeftCol {
-  background-color: #f6c486;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.newsSource {
+  color: rgb(25, 129, 98);
 }
 
-.resultRightCol {
-  background-color: #bcf3f0;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.newsTitle {
+  font-weight: bold;
+}
+
+.newsTitleLine {
+  font-variant: small-caps;
+  font-weight: bold;
+  color: rgb(144, 44, 8)!important;
 }

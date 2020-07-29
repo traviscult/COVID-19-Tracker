@@ -3,7 +3,7 @@ import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import Navbar from '../components/navigation/Navbar';
 import ResultLeft from '../components/resultComponents/ResultLeft';
-import ResultRight from '../components/resultComponents/ResultRight';
+import '../components/resultComponents/result.css';
 
 const Result = () => {
   return (
@@ -11,11 +11,11 @@ const Result = () => {
       <Header />
       <Navbar />
 
-      <h3 className="text-center resultPageTitle">Result page contents go here.</h3>
+      <h3 className="text-center resultPageTitle">News and Article Search Result</h3>
 
-      <div class="container row resultContentWrapper">
+      <div className="row resultContentWrapper">
+
         <ResultLeft />
-        <ResultRight />
 
       </div>
       <Footer />
@@ -23,4 +23,4 @@ const Result = () => {
     </>
   )
 }
-export default Result; 
+export default Result;
