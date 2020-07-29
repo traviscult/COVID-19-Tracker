@@ -41,7 +41,6 @@ export default class StateSearch extends React.Component {
             <Map
                 province={this.provinceCallback}
                 counties={this.countylistCallback}
-                county={this.countyCallback}
             />
             <p>State: {this.state.province}</p>
             <div id="react-search">

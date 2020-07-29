@@ -59,6 +59,8 @@ class Map extends Component {
       ];
   for(var i = 0; i < states.length; i++){
     if(states[i][1] === abrv){
+      const stateParam = states[i][0]
+      this.props.province(stateParam);
       console.log(states[i][0])
     }
   }
