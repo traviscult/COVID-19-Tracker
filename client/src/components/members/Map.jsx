@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import './map.css'
+import './map.css';
 import USAMap from "react-usa-map";
-import StatesList from './StatesList';
 
 class Map extends Component {
   mapHandler = (event) => {
@@ -65,27 +64,15 @@ class Map extends Component {
   }
   };
 
-  statesFilling = () => {
-    return {
-      "NC": {
-        fill: "#adadad",
-        clickHandler: () => alert("Custom callback for the North Carolina")
-      }
-    };
-  };
-
   render() {
     return (
       <>
-
-        <StatesList />
-
+      <h4>Click on a State Below</h4>
         <div className="d-flex justify-content-center align-items-center mapCol">
-          <USAMap customize={this.statesFilling()} onClick={this.mapHandler} />
+          <USAMap onClick={this.mapHandler}/>
         </div >
       </>
     );
-
   }
 }
 
