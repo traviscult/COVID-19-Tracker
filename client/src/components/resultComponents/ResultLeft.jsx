@@ -14,7 +14,7 @@ export default class ResultLeft extends React.Component {
   }
 
   componentDidMount() {
-    const APIkey = "161d83da2a6f45d5a125daa9f91abfae";
+    const APIkey = process.env.REACT_APP_API_KEY
 
     const dt = new Date();
 
