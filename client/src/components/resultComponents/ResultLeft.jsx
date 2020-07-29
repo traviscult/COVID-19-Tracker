@@ -21,10 +21,12 @@ export default class ResultLeft extends React.Component {
     const year = dt.getFullYear();
     const month = (dt.getMonth()).toString().padStart(2, "0");
     const day = dt.getDate().toString().padStart(2, "0");
+    //make it plus a day so it deploys to heroku
+    const dayOne = JSON.stringify(parseInt(day)+1)
     //set last date for API to call from
-    const lastMonth = year + '-' + month + '-' + day
+    const lastMonth = year + '-' + month + '-' + dayOne
 
-    console.log(APIkey);
+console.log(lastMonth)
     // const county = "wake"
     axios.get("https://newsapi.org/v2/top-headlines?q=coronavirus&from=" + lastMonth + "&language=en&apiKey=" + APIkey)
       .then(res => {
