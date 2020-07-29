@@ -28,7 +28,7 @@ export default class ResultLeft extends React.Component {
     // const county = "wake"
     axios.get("https://newsapi.org/v2/top-headlines?q=coronavirus&from=" + lastMonth + "&language=en&apiKey=" + APIkey)
       .then(res => {
-      
+
         console.log("response", res.data.articles)
         this.setState({ source: res.data.articles })
         // this.setState({ title: res.data.articles[i].title })
@@ -42,19 +42,20 @@ export default class ResultLeft extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         {this.state.source.map((article, idx) => {
           if (idx < 10) {
             return (
-              <div className="card">
-                <p>Source: {article.source.name}</p>
-                <p>Title: <a href={article.url} target="blank">{article.title}</a></p>
-                <p>{article.description}</p>
+              <div className="col-sm-12 col-md-5 newsCol">
+
+                <p className="newsSource" key={idx}><span className="newsTitle"> Source:</span> {article.source.name}</p>
+                <p><span className="newsTitle"> Title:</span> <a href={article.url} target="_blank" rel="noopener noreferrer" className="newsTitleLine">{article.title}</a></p>
+                <p className="newsDescription">{article.description}</p>
               </div>
             )
           }
         })}
-      </div>
+      </>
     )
   }
 }
