@@ -37,8 +37,8 @@ export default class CountyDropdown extends React.Component{
 
     render(){
     let counties = this.props.state.counties
-    let countyoptions = counties.map((county) =>
-    <option key={county}>{county}</option>);
+    let countyoptions = counties.map((county, i) =>
+    <option value={county} key={i}>{county}</option>);
     return (
         <div>
         <form onSubmit={this.handleSubmit}>
