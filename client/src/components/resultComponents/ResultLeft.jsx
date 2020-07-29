@@ -2,6 +2,9 @@ import React from 'react';
 import './result.css';
 import axios from "axios";
 
+const dotenv = require('dotenv');
+const env = dotenv.config().parsed;
+
 export default class ResultLeft extends React.Component {
   state = {
     source: [],
@@ -11,7 +14,7 @@ export default class ResultLeft extends React.Component {
   }
 
   componentDidMount() {
-    const APIKey = "161d83da2a6f45d5a125daa9f91abfae";
+    const APIkey = "161d83da2a6f45d5a125daa9f91abfae";
 
     const dt = new Date();
 
@@ -21,9 +24,9 @@ export default class ResultLeft extends React.Component {
     //set last date for API to call from
     const lastMonth = year + '-' + month + '-' + day
 
-    console.log(year + '/' + month + '/' + day);
+    console.log(APIkey);
     // const county = "wake"
-    axios.get("https://newsapi.org/v2/top-headlines?q=coronavirus&from=" + lastMonth + "&language=en&apiKey=" + APIKey)
+    axios.get("https://newsapi.org/v2/top-headlines?q=coronavirus&from=" + lastMonth + "&language=en&apiKey=" + APIkey)
       .then(res => {
       
         console.log("response", res.data.articles)
