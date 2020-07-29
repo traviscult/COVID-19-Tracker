@@ -1,11 +1,16 @@
 import React from 'react';
+import axios from "axios";
 
 
 
 export default class CountyDropdown extends React.Component{
     constructor(){
         super();
-        this.state ={value: '' };
+        this.state = {
+            value: '',
+            deaths: '',
+            active: ''
+        };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,10 +21,26 @@ export default class CountyDropdown extends React.Component{
     }
 
    handleSubmit = (event) => {
-        alert('You have chosen the county of ' + this.state.value)
         event.preventDefault();
+        this.getCounty(this.state.value)
     }
   
+
+    async getCounty(value) {
+        let province = this.props.state.province
+        console.log(province)
+        let res = await axios.get("https://corona.azure-api.net/country/us/" + province + "/" + value);
+       
+            this.setState({ 
+                deaths: res.data.Deaths,
+                active: res.data.Active
+            }) 
+        console.log("deaths", this.state.deaths)
+        console.log("active", this.state.active)
+     
+    }
+
+
     render(){
         let counties = this.props.state.counties
         let countyoptions = counties.map((county) =>
@@ -35,6 +56,9 @@ export default class CountyDropdown extends React.Component{
                             <input type="submit" value="Submit" className="stateSubmitBtn" ></input>
                     </label> 
                 </form>
+            <p>County: {this.state.value}</p>
+            <p>Deaths: {this.state.deaths}</p>
+            <p>Active Cases: {this.state.active}</p>
                 
            </div>
         )
