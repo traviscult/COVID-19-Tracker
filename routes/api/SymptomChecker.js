@@ -3,7 +3,7 @@ const sypmtomChekerController = require("../../contollers/symptomController");
 
 router.get("/", (req, res) => {
     console.log("symptom cheker is getting called")
-    sypmtomChekerController.questionsPost(req, res)
+    sypmtomChekerController.questionsPost({body: []}, res)
 });
 
 router.post("/", (req, res) =>{

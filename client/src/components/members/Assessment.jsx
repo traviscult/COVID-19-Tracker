@@ -46,7 +46,7 @@ const Assessment = () => {
 
   const groupMultiple = (items) => {
   console.log("what we are printing", questionsObject.items)
-  return <div>
+  return <form id="answerCheckBoxes">
   <ul>{questionsObject.items.map((question, i) => 
   <label key={i} className="checkText">{question.name}
   <input onClick={checkedAnswer} id={question.id} type="checkbox" />
@@ -55,7 +55,7 @@ const Assessment = () => {
     </label>
     )}
     </ul> 
-  </div>
+  </form>
 
   }
 
@@ -80,11 +80,20 @@ const Assessment = () => {
   </div>
   }
 
-  const nextQuestion = (e) => {
+  const nextQuestion = async (e) => {
     console.log("I am being clicked!!", )
     e.preventDefault();
     console.log("on click store", storedAnswers)
-    API.postAnswers(storedAnswers);
+    const res = await API.postAnswers(storedAnswers);
+    console.log("onclick res", res)
+    const response = res.data.question
+      setQuestionsObject(response)
+      const answerArray = response.items.map(question => {
+      return {id: question.id, choice_id: "absent"}
+      })
+      console.log("ans arry", answerArray)
+      setStoredAnswers(answerArray);
+      document.getElementById("answerCheckBoxes").reset();
     // sypmtomChekerController.questionsPost(storedAnswers)
     
     // api post to save data to evidence 

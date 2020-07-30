@@ -15,6 +15,7 @@ module.exports = {
          }) 
     },
     questionsPost: function(req, res){
+      // console.log(req, "controller req")
       console.log(req.body,"controller req body")
         axios({
             url: 'https://api.infermedica.com/covid19/diagnosis',
@@ -27,7 +28,7 @@ module.exports = {
             data: {
               sex: "male",
               age: 20,
-              evidence: []
+              evidence: req.body
             }
           })
             .then(response => {
