@@ -2,6 +2,9 @@ import React from 'react';
 import './news.css';
 import axios from "axios";
 
+const dotenv = require('dotenv');
+const env = dotenv.config().parsed;
+
 export default class News extends React.Component {
   state = {
     source: [],
@@ -16,7 +19,6 @@ export default class News extends React.Component {
     axios.get("https://api.nytimes.com/svc/search/v2/articlesearch.json?q=covid&api-key=" + APIkey)
       .then(res => {
 
-        console.log("response", res.data.response.docs)
         this.setState({ source: res.data.response.docs })
 
       })
