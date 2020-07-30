@@ -1,5 +1,5 @@
 {
-  "name": "Covid Tracker",
+  "name": "covid-tracker",
   "version": "1.0.0",
   "description": "A Corona Virus informational application that allows users to view current data and utilize a symptom checker",
   "main": "./server.js",
