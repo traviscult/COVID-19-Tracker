@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import Search from './pages/Search';
 import Result from './pages/Result';
 import Members from './pages/members'
 import Nav from './components/nav'
@@ -43,8 +42,8 @@ function App() {
     });
   };
 
-	const login = (email, password) => {
-		AUTH.login(email, password).then(response => {
+  const login = (email, password) => {
+    AUTH.login(email, password).then(response => {
       // console.log(response.data);
       if (response.status === 200) {
         // update the state
@@ -87,35 +86,33 @@ function App() {
 
   return (
     <>
-     
+
       <div class="container-fluid mx-0 px-0">
-      { !loggedIn && (
-        <BrowserRouter>
-        
-       
-          <Route exact path="/" component={() => <Home signUpUser={signUpUser} login={login}/>} />
-          <Route exact path="/search" component={Search}/>
-          <Route exact path="/result" component={Result} />
-          <Route exact path="/members" component={Members} />
-        </BrowserRouter>
-      
+        {!loggedIn && (
+          <BrowserRouter>
 
-      )}
 
-{ loggedIn && (
-        <BrowserRouter>
-        
-        <Nav user={user} logout={logout}/>
-          <Route exact path="/" component={Members} />
-          <Route exact path="/search" component={Search} />
-          <Route exact path="/result" component={Result} />
-          <Route exact path="/members" component={Members}/>
-        </BrowserRouter>
-      
+            <Route exact path="/" component={() => <Home signUpUser={signUpUser} login={login} />} />
+            <Route exact path="/result" component={Result} />
+            <Route exact path="/members" component={Members} />
+          </BrowserRouter>
 
-      )}
-      </div> 
-      
+
+        )}
+
+        {loggedIn && (
+          <BrowserRouter>
+
+            <Route exact path="/" component={Members} />
+            <Route exact path="/result" component={Result} />
+            <Route exact path="/members" component={Members} />
+            <Nav user={user} logout={logout} />
+          </BrowserRouter>
+
+
+        )}
+      </div>
+
     </>
 
   );

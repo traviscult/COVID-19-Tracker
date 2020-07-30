@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Nav from '../nav/Nav';
 
 const Navbar = () => {
   return (
@@ -24,6 +25,7 @@ const Navbar = () => {
             </li>
 
           </ul>
+
         </div>
       </nav>    </div>
   )

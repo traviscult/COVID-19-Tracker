@@ -1,11 +1,9 @@
 import React, { Fragment } from "react";
 import { Link } from 'react-router-dom';
-// import { Col } from '../Grid';
-// import './Nav.css';
 
 const Nav = (props) => {
     let greeting;
-console.log("props in nav", props)
+    console.log("props in nav", props)
     if (props.user === null) {
         // console.log(props)
         greeting = <p>Hello guest</p>
@@ -26,13 +24,15 @@ console.log("props in nav", props)
     }
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-success">
-            <div size="md-6 sm-6">
-                <div className="float-right">
-                    {greeting} - <Link to="#" className="logout" onClick={props.logout}>Logout</Link>
+        <div className="col">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+                <div size="md-6 sm-6">
+                    <div className="float-right">
+                        {greeting} - <Link to="#" className="logout" onClick={props.logout}>Logout</Link>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     )
 };
 
