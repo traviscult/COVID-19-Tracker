@@ -16,43 +16,25 @@ export default class ResultLeft extends React.Component {
   componentDidMount() {
     const APIkey = process.env.REACT_APP_API_KEY
 
-    const dt = new Date();
-
-    const year = dt.getFullYear();
-    const month = (dt.getMonth()).toString().padStart(2, "0");
-    const day = dt.getDate().toString().padStart(2, "0");
-    //make it plus a day so it deploys to heroku
-    const dayOne = JSON.stringify(parseInt(day)+1)
-    //set last date for API to call from
-    const lastMonth = year + '-' + month + '-' + dayOne
-
-console.log(lastMonth)
-    // const county = "wake"
-    axios.get("https://newsapi.org/v2/top-headlines?q=coronavirus&from=" + lastMonth + "&language=en&apiKey=" + APIkey)
+    axios.get("https://api.nytimes.com/svc/search/v2/articlesearch.json?q=covid&api-key=" + APIkey)
       .then(res => {
 
-        console.log("response", res.data.articles)
-        this.setState({ source: res.data.articles })
-        // this.setState({ title: res.data.articles[i].title })
-        // this.setState({author: res.data.articles[i].author})
-        // this.setState({source: res.data.articles[i].source.name})
-        // this.setState({url: res.data.articles[i].url})
-        console.log(this.state.source)
-        // }
+        console.log("response", res.data.response.docs)
+        this.setState({ source:res.data.response.docs })
+        
       })
   };
 
   render() {
     return (
       <>
-        {this.state.source.map((article, idx) => {
+        {this.state.source.map((doc, idx) => {
           if (idx < 10) {
             return (
               <div className="col-sm-12 col-md-5 newsCol">
-
-                <p className="newsSource" key={idx}><span className="newsTitle"> Source:</span> {article.source.name}</p>
-                <p><span className="newsTitle"> Title:</span> <a href={article.url} target="_blank" rel="noopener noreferrer" className="newsTitleLine">{article.title}</a></p>
-                <p className="newsDescription">{article.description}</p>
+                <p><span className="newsTitle"> Title:</span> <a href={doc.web_url} target="_blank" rel="noopener noreferrer" className="newsTitleLine">{doc.headline.main}</a></p>
+                <p className="newsDescription">{doc.type_of_material}</p>
+                <p className="newsDescription">{doc.snippet}</p>
               </div>
             )
           }
