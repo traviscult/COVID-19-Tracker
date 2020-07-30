@@ -5,7 +5,7 @@ import axios from "axios";
 const dotenv = require('dotenv');
 const env = dotenv.config().parsed;
 
-export default class News extends React.Component {
+export default class NewsComp extends React.Component {
   state = {
     source: [],
     title: [],

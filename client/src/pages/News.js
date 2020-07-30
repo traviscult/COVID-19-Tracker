@@ -2,20 +2,20 @@ import React from 'react';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import Navbar from '../components/navigation/Navbar';
-import News from '../components/newsComponent/News';
+import NewsComp from '../components/newsComponent/NewsComp';
 import '../components/newsComponent/news.css';
 
-const Result = () => {
+const NewsPage = () => {
   return (
     <>
       <Header />
       <Navbar />
 
-      <h3 className="text-center resultPageTitle">NY Times Articles on COVID-19</h3>
+      <h3 className="text-center pageTitle">NY Times Articles on COVID-19</h3>
 
-      <div className="row resultContentWrapper">
+      <div className="row newsContentWrapper">
 
-        <News />
+        <NewsComp />
 
       </div>
       <Footer />
@@ -23,4 +23,4 @@ const Result = () => {
     </>
   )
 }
-export default Result;
+export default NewsPage;
