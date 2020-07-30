@@ -1,11 +1,8 @@
 import React from 'react';
-import './result.css';
+import './news.css';
 import axios from "axios";
 
-// const dotenv = require('dotenv');
-// const env = dotenv.config().parsed;
-
-export default class ResultLeft extends React.Component {
+export default class News extends React.Component {
   state = {
     source: [],
     title: [],

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import Result from './pages/Result';
+import News from './pages/News';
 import Members from './pages/members'
 import AUTH from './utils/AUTH';
 
@@ -80,7 +80,7 @@ function App() {
         {!loggedIn && (
           <BrowserRouter>
             <Route exact path="/" component={() => <Home signUpUser={signUpUser} login={login} />} />
-            <Route exact path="/result" component={Result} />
+            <Route exact path="/news" component={News} />
             <Route exact path="/members" component={Members} />
           </BrowserRouter>
         )}
@@ -88,7 +88,7 @@ function App() {
         {loggedIn && (
           <BrowserRouter>
             <Route exact path="/" component={Members} />
-            <Route exact path="/result" component={Result} />
+            <Route exact path="/news" component={News} />
             <Route exact path="/members" component={Members} />
           </BrowserRouter>
         )}
