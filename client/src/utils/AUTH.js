@@ -10,9 +10,8 @@ export default {
     return axios.post('/auth/logout');
   },
   // Log the user in
-  login: function(email, password) {
-    console.log(email, password)
-    return axios.post('/auth/login', { email, password });
+  login: function(username, password) {
+    return axios.post('/auth/login', { username, password });
   },
   // New user registration
   signup: function(userData) {
