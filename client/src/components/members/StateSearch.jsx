@@ -18,8 +18,7 @@ export default class StateSearch extends React.Component {
         this.setState({ 
                 province: res.data.Province_State, 
                 counties: countylist
-        });
-        console.log("actual county list:", this.state.counties);    
+        });   
     }
 
     provinceCallback = (province) => {
@@ -37,17 +36,17 @@ export default class StateSearch extends React.Component {
 
     render() {
         return( 
-            <div>
-            <Map
-                province={this.provinceCallback}
-                counties={this.countylistCallback}
-            />
-            <p>State: {this.state.province}</p>
-            <div id="react-search">
-                <p>Counties:</p>
-                    <CountyDropdown state={this.state} />
-            </div> 
+        <div>
+         <Map
+            province={this.provinceCallback}
+            counties={this.countylistCallback}
+         />
+        <p>State: {this.state.province}</p>
+         <div id="react-search">
+            <p>Counties:</p>
+                <CountyDropdown state={this.state} />
+        </div> 
         </div>
         )   
-    }         
-}
+    };         
+};
