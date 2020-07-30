@@ -2,8 +2,8 @@ import React from 'react';
 import './result.css';
 import axios from "axios";
 
-const dotenv = require('dotenv');
-const env = dotenv.config().parsed;
+// const dotenv = require('dotenv');
+// const env = dotenv.config().parsed;
 
 export default class ResultLeft extends React.Component {
   state = {
@@ -20,8 +20,8 @@ export default class ResultLeft extends React.Component {
       .then(res => {
 
         console.log("response", res.data.response.docs)
-        this.setState({ source:res.data.response.docs })
-        
+        this.setState({ source: res.data.response.docs })
+
       })
   };
 
@@ -32,8 +32,8 @@ export default class ResultLeft extends React.Component {
           if (idx < 10) {
             return (
               <div className="col-sm-12 col-md-5 newsCol">
-                <p><span className="newsTitle"> Title:</span> <a href={doc.web_url} target="_blank" rel="noopener noreferrer" className="newsTitleLine">{doc.headline.main}</a></p>
-                <p className="newsDescription">{doc.type_of_material}</p>
+                <p><span className="newsTitle"> Title:</span> <a href={doc.web_url} target="_blank" rel="noopener noreferrer" className="newsTitleLine"><em>{doc.headline.main}</em></a></p>
+                <p className="newsType">{doc.type_of_material}</p>
                 <p className="newsDescription">{doc.snippet}</p>
               </div>
             )

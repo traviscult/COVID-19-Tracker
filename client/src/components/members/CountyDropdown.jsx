@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from "axios";
+import './map.css';
 
-export default class CountyDropdown extends React.Component{
-    constructor(){
+export default class CountyDropdown extends React.Component {
+    constructor() {
         super();
         this.state = {
             value: '',
@@ -14,46 +15,47 @@ export default class CountyDropdown extends React.Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     };
 
-    handleChange (event) {
-        this.setState({value: event.target.value});
+    handleChange(event) {
+        this.setState({ value: event.target.value });
     };
 
-   handleSubmit = (event) => {
+    handleSubmit = (event) => {
         event.preventDefault();
         this.getCounty(this.state.value)
     };
-  
+
     async getCounty(value) {
         let province = this.props.state.province;
         console.log(province);
         let res = await axios.get("https://corona.azure-api.net/country/us/" + province + "/" + value);
-            this.setState({ 
-                deaths: res.data.Deaths,
-                active: res.data.Active
-            });
+        this.setState({
+            deaths: res.data.Deaths,
+            active: res.data.Active
+        });
         console.log("deaths", this.state.deaths);
         console.log("active", this.state.active);
     };
 
-    render(){
-    let counties = this.props.state.counties
-    let countyoptions = counties.map((county, i) =>
-    <option value={county} key={i}>{county}</option>);
-    return (
-        <div>
-        <form onSubmit={this.handleSubmit}>
-        <label> Choose a County: <br />
-            <select value={this.state.value} onChange={this.handleChange}>
-                <option value="" selected="defaultValue">Select from here...</option>
-                    {countyoptions}
-             </select>
-            <input type="submit" value="Submit" className="stateSubmitBtn" ></input>
-        </label> 
-        </form>
-        <p>County: {this.state.value}</p>
-           <p>Deaths: {this.state.deaths}</p>
-        <p>Active Cases: {this.state.active}</p>
-        </div>
+    render() {
+        let counties = this.props.state.counties
+        let countyoptions = counties.map((county, i) =>
+            <option value={county} key={i}>{county}</option>);
+        return (
+            <div>
+                <form onSubmit={this.handleSubmit} className="dropdownOptionForm">
+                    <label> Choose a County:                         <select value={this.state.value} onChange={this.handleChange}>
+                        <option value="" selected="defaultValue">Select from here...</option>
+                        {countyoptions}
+                    </select>
+                        <input type="submit" value="Click to view the data below" className="stateSubmitBtn" ></input>
+                    </label>
+                </form>
+                <div className="countyDataWrapper">
+                    <h5>County: <span className="dataNumber"> {this.state.value} </span>&nbsp;&nbsp; &bull; &nbsp;&nbsp;</h5>
+                    <h5>Deaths: <span className="dataNumber"> {this.state.deaths} </span>&nbsp;&nbsp; &bull; &nbsp;&nbsp;</h5>
+                    <h5>Active Cases: <span className="dataNumber"> {this.state.active} </span></h5>
+                </div>
+            </div>
         )
     }
 }

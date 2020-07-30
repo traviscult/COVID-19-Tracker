@@ -9,22 +9,23 @@ import StateSearch from '../components/members/StateSearch';
 const Members = () => {
   return (
     <>
-      <Header />
-      <Navbar />
-      <h3 className="text-center membersPageTitle">Welcome to members dashboard!</h3>
+      <div className="container mainWrapper">
+        <Header />
+        <Navbar />
+        <h3 className="text-center pageTitle">Welcome to members dashboard!</h3>
 
-      <div class="container">
-        <div className="row">
-          <div className="col-sm-12 col-md-5">
-            <Assessment />
-          </div>
-          <div className="col-sm-12 col-md-7">
-            <StateSearch />
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-12 col-md-5">
+              <Assessment />
+            </div>
+            <div className="col-sm-12 col-md-7">
+              <StateSearch />
+            </div>
           </div>
         </div>
-
+        <Footer />
       </div>
-      <Footer />
     </>
   )
 }
