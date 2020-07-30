@@ -9,30 +9,67 @@ const Assessment = () => {
   const [questionsObject, setQuestionsObject] = useState({
     items: [],
     text: "",
-    choices: []
+    type: "",
+    choices: [],
   })
   console.log(questionsObject)
+
+  const [storedAnswers, setStoredAnswers] = useState ([])
 
   useEffect(() => {
     console.log("This is being called")
     API.getQuestions().then(res => {
       console.log("assessment", res.data)
       const response = res.data.question
-      // console.log("useEffect res", response)
       setQuestionsObject(response)
-      // console.log("questions", questionsObject)
+      const answerArray = response.items.map(question => {
+      return {id: question.id, choice_id: "absent"}
+      })
+      console.log("ans arry", answerArray)
+      setStoredAnswers(answerArray);
     })
 
   },[])
 
+  const checkedAnswer = (e) => {
+    const id = e.target.id;
+    const foundAnswer = storedAnswers.find(answer => answer.id === id)
+    console.log("found answer", foundAnswer)
+    // foundAnswer.choice_id="absent"
+    const newAnswer = foundAnswer.choice_id === "present" ? "absent" : "present"; 
+    const filteredArray = storedAnswers.filter(answer => answer.id !== id)
+    // console.log("filter", filteredArray)
+    filteredArray.push({id: id, choice_id: newAnswer})
+    console.log("filter2", filteredArray)
+    setStoredAnswers(filteredArray)
+  }
+
   const groupMultiple = (items) => {
   console.log("what we are printing", questionsObject.items)
-  return <ul>{questionsObject.items.map(question => <label className="checkText">{question.name}<input type="checkbox" /><span className="checkmark"></span></label>)}</ul>
+  return <div>
+  <ul>{questionsObject.items.map((question, i) => 
+  <label key={i} className="checkText">{question.name}
+  <input onClick={checkedAnswer} id={question.id} type="checkbox" />
+  <span className="checkmark">
+    </span>
+    </label>
+    )}
+    </ul> 
+  </div>
+
   }
 
   const groupSingle = (items) => {
-    return <ul>{questionsObject.items.map(question => <label className="checkText">{question.name}<input type="checkbox" /><span className="checkmark"></span></label>)}</ul>
-
+    return <div>
+      <ul>{questionsObject.items.map((question, i) => 
+      <label key={i} className="checkText">{question.name}
+      <input id={question.id} type="checkbox" />
+      <span className="checkmark">
+        </span>
+        </label>
+        )}
+        </ul> 
+      </div>
   }
 
   const single = () => {
@@ -43,22 +80,32 @@ const Assessment = () => {
   </div>
   }
 
+  const nextQuestion = (e) => {
+    console.log("I am being clicked!!", )
+    e.preventDefault();
+    console.log("on click store", storedAnswers)
+    API.postAnswers(storedAnswers);
+    // sypmtomChekerController.questionsPost(storedAnswers)
+    
+    // api post to save data to evidence 
+  }
+
   return (
 
     <div className="assessmentCol px-3 py-3">
       <h5> Assess Your COVID-19 Risk</h5>
-      <h6>Answer a few questions to find out about the symptoms and risk factors of the COVID-19. </h6>
+      <br></br>
+      <p>Answer a few questions to find out about the symptoms and risk factors of the COVID-19. </p>
       <hr />
       {/* <Questionnaire /> */}
-      <h4>{questionsObject.text}</h4>
+      <h6>{questionsObject.text}</h6>
       <br></br>
-      {groupMultiple()}
-      
-      
-  {/* <ul>{questionsObject.items.map(question => <label className="checkText">{question.name}<input type="checkbox" /><span className="checkmark"></span></label>)}</ul>
-  {console.log("what we are printing", questionsObject.items)} */}
-  
-        <button id="submit" type="button" className="btn nextBtn btn-primary">submit</button>
+      <div>
+        {questionsObject.type === 'single' ? single() : 
+        questionsObject.type === 'group_multiple' ? groupMultiple() :
+        groupSingle()}
+        {questionsObject.type !== 'single' ? <button onClick={nextQuestion} className="next-question btn btn-primary">Next question</button> : ''}
+      </div>
     </div>
   )
 }

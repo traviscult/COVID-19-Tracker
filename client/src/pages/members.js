@@ -3,7 +3,7 @@ import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import './Pages.css';
 import Assessment from '../components/members/Assessment';
-import Map from '../components/members/Map';
+// import Map from '../components/members/Map';
 import Navbar from '../components/navigation/Navbar';
 import Search from '../components/members/Search'
 

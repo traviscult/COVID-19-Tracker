@@ -14,7 +14,8 @@ module.exports = {
           //  console.log("response data", response.data)
          }) 
     },
-    questionsPost: function(res){
+    questionsPost: function(req, res){
+      console.log(req.body,"controller req body")
         axios({
             url: 'https://api.infermedica.com/covid19/diagnosis',
             method: 'POST',
