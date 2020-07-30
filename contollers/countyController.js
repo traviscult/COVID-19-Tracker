@@ -11,10 +11,6 @@ module.exports = {
               console.log('respons', response);
               
             })
-            // .catch(function (error) {
-            //   console.log(error);
-            //   //   console.log('Show error notification!');
-            // });
-
+            
 }}
 

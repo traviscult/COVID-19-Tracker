@@ -14,7 +14,7 @@ const passport = require('./passport');
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use(require("./routes/api-routes.js"));
+
 app.use(session({
   secret: process.env.APP_SECRET || 'mongodb://user:password1@ds031965.mlab.com:31965/heroku_w9nqrtn6',
   store: new MongoStore({ mongooseConnection: dbConnection }),
