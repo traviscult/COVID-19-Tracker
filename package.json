@@ -1,7 +1,7 @@
 {
-  "name": "test-project-3",
+  "name": "Covid Tracker",
   "version": "1.0.0",
-  "description": "This repo is to test files and folder created from scratch instead of using given templates.",
+  "description": "A Corona Virus informational application that allows users to view current data and utilize a symptom checker",
   "main": "./server.js",
   "dependencies": {
     "axios": "^0.19.2",
