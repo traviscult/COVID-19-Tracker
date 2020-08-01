@@ -4,15 +4,7 @@ const dotenv = require("dotenv");
 const env = dotenv.config().parsed;
 const APPid = process.env.REACT_APP_SYMPTOM_ID;
 const APPkey = process.env.REACT_APP_SYMPTOM_KEY;
-<<<<<<< HEAD
-// console.log(REACT_APP_SYMPTOM_ID)
-// console.log(REACT_APP_SYMPTOM_KEY)
 
-=======
-
-
-
->>>>>>> master
 module.exports = {
   questions: function (res) {
     axios
@@ -57,8 +49,6 @@ module.exports = {
         //   console.log('Show error notification!');
       });
   },
-<<<<<<< HEAD
-=======
   callTriage: function (req, res) {
     axios({
       url: "https://api.infermedica.com/covid19/triage",
@@ -75,12 +65,11 @@ module.exports = {
       },
     })
       .then((response) => {
-        console.log("call triage response", response)
+        console.log("call triage response", response);
         return res.json(response.data);
       })
       .catch(function (error) {
         console.log(error);
       });
   },
->>>>>>> master
 };

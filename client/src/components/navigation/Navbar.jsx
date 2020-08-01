@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "../../pages/Pages.css";
-=======
-import React, { useState } from 'react';
-import { Link, Redirect } from 'react-router-dom';
->>>>>>> master
 
 const Navbar = ({ logout }) => {
   const [redirectTo, setRedirectTo] = useState(null);
@@ -15,14 +10,13 @@ const Navbar = ({ logout }) => {
     const isLoggedOut = logout();
 
     console.log("logout clicked");
-    if(isLoggedOut) {
-      setRedirectTo('/');
+    if (isLoggedOut) {
+      setRedirectTo("/");
     }
-    setRedirectTo('/')
-
+    setRedirectTo("/");
   };
   if (redirectTo) {
-    return <Redirect to={{ pathname: redirectTo }} />
+    return <Redirect to={{ pathname: redirectTo }} />;
   }
 
   return (
