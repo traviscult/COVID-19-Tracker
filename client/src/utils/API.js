@@ -18,5 +18,9 @@ export default {
     console.log(answers)
     return axios.post("/api/symptomchecker", answers);
 
+  },
+  callTriage: function(answers) {
+    console.log(answers)
+    return axios.post ("/api/symptomchecker/triage", answers);
   }
 };

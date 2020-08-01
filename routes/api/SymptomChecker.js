@@ -10,6 +10,10 @@ router.post("/", (req, res) =>{
     sypmtomChekerController.questionsPost(req, res)
   });
 
+  router.post("/triage", (req,res) => {
+    sypmtomChekerController.callTriage(req, res)
+  })
+
 module.exports = router
 
 

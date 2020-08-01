@@ -9,20 +9,22 @@ const Assessment = () => {
     type: "",
     choices: [],
   })
-  console.log(questionsObject)
+  // console.log(questionsObject)
 
   const [storedAnswers, setStoredAnswers] = useState([])
+  const [isTriage, setIsTriage] = useState(false)
+  const [triageResult, setTriageResult] = useState({})
 
   useEffect(() => {
-    console.log("This is being called")
+    console.log("use effect This is being called")
     API.getQuestions().then(res => {
-      console.log("assessment", res.data)
+      console.log(" use effect assessment", res.data)
       const response = res.data.question
       setQuestionsObject(response)
       const answerArray = response.items.map(question => {
         return { id: question.id, choice_id: "absent" }
       })
-      console.log("ans arry", answerArray)
+      // console.log("ans arry", answerArray)
       setStoredAnswers(answerArray);
     })
 
@@ -30,15 +32,16 @@ const Assessment = () => {
 
   const checkedAnswer = (e) => {
     const id = e.target.id;
+    // console.log("made it here!", id)
     const foundAnswer = storedAnswers.find(answer => answer.id === id)
-    console.log("found answer", foundAnswer)
-    // foundAnswer.choice_id="absent"
+    // console.log("found answer", foundAnswer)
     const newAnswer = foundAnswer.choice_id === "present" ? "absent" : "present";
+    // console.log("new Answer", newAnswer)
     const filteredArray = storedAnswers.filter(answer => answer.id !== id)
     // console.log("filter", filteredArray)
     filteredArray.push({ id: id, choice_id: newAnswer })
-    console.log("filter2", filteredArray)
-    setStoredAnswers(filteredArray)
+    // console.log("filter2", filteredArray)
+    setStoredAnswers(filteredArray);
   }
 
   const groupMultiple = (items) => {
@@ -56,16 +59,16 @@ const Assessment = () => {
   }
 
   const groupSingle = (items) => {
-    return <div>
+    return <form id="answerCheckBoxes">
       <ul>{questionsObject.items.map((question, i) =>
         <label key={i} className="checkText">{question.name}
-          <input id={question.id} type="checkbox" />
-          <span className="checkmark">
-          </span>
+          <input onClick={checkedAnswer} id={question.id} type="radio" name="answer" value="present"/>
+           <span className="checkmark">
+           </span> 
         </label>
       )}
       </ul>
-    </div>
+    </form>
   }
 
   const single = () => {
@@ -82,17 +85,38 @@ const Assessment = () => {
     console.log("on click store", storedAnswers)
     const res = await API.postAnswers(storedAnswers);
     console.log("onclick res", res)
+    if (res.data.should_stop) {
+      setIsTriage(true)
+      console.log("made it to reroute")
+
+       const triageRes = await API.callTriage(storedAnswers)
+       console.log("triage res", triageRes)
+       setTriageResult(triageRes.data)
+      //  console.log(triageResult)
+      return;
+      
+    }
     const response = res.data.question
     setQuestionsObject(response)
     const answerArray = response.items.map(question => {
       return { id: question.id, choice_id: "absent" }
     })
-    console.log("ans arry", answerArray)
-    setStoredAnswers(answerArray);
-    document.getElementById("answerCheckBoxes").reset();
+    const previousAnswers = [...storedAnswers];
+    // console.log("ans arry", answerArray)
+    const combinedAnswers = answerArray.concat(previousAnswers)
+    setStoredAnswers(combinedAnswers);
+    if (!isTriage) {
+      document.getElementById("answerCheckBoxes").reset();
+    }
 
   }
-
+  if (isTriage){
+    return (
+    <div>{triageResult.triage_level}
+    {triageResult.description}
+    </div>
+    )
+  }
   return (
 
     <div className="col-sm-12 assessmentCol">
