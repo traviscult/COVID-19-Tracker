@@ -50,7 +50,7 @@ function App() {
   };
 
   const signUpUser = (userObject) => {
-    console.log("CLICKED")
+    // console.log("CLICKED")
     // TODO - validate!
     AUTH.signup({
 
@@ -63,11 +63,11 @@ function App() {
       isLoggedIn: true
     }).then(response => {
       if (!response.data.errmsg) {
-        console.log("LOGGED")
+        //  console.log("LOGGED")
         setLoggedIn(true);
         setUser(response.data);
       } else {
-        console.log('duplicate');
+        //   console.log('duplicate');
       }
     });
 
