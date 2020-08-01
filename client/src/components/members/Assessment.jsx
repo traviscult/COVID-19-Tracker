@@ -130,8 +130,10 @@ const Assessment = () => {
   }
   if (isTriage){
     return (
-    <div>{triageResult.triage_level}
-    {triageResult.description}
+    <div>
+      <h1>{triageResult.triage_level}</h1>
+      <br></br>
+      <p>{triageResult.triage_level}</p>
     </div>
     )
   }
