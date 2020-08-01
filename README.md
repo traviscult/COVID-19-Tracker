@@ -6,9 +6,9 @@
 
 - A Corona Virus informational application that allows users to view current data.
 
-<div align="center"><img src="public/images/Main.png" width="800" alt="main"></div>
-<div align="center"><img src="public/images/Members.png" width="800" alt="main"></div>
-<div align="center"><img src="public/images/News.png" width="800" alt="main"></div>
+<div align="center"><img src="client/public/images/Main.png" width="800" alt="main"></div>
+<div align="center"><img src="client/public/images/Members.png" width="800" alt="main"></div>
+<div align="center"><img src="client/public/images/News.png" width="800" alt="main"></div>
 
 ## User Story
 
