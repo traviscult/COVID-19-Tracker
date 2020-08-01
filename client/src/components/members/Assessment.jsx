@@ -80,32 +80,21 @@ const Assessment = () => {
 
 
   const single = () => {
-    return (
-      <div>
-        <button
-          type="button"
-          data-value="true"
-          className="next-question btn btn-success"
-        >
-          Yes
-        </button>
-        <button
-          type="button"
-          data-value="false"
-          className="next-question btn btn-danger"
-        >
-          No
-        </button>
-        <button
-          type="button"
-          data-value="unknown"
-          className="next-question btn btn-info"
-        >
-          Skip question
-        </button>
-      </div>
-    );
-  };
+    return <form id="answerCheckBoxes">
+      <ul>{questionsObject.items.map((question, i) =>
+      <label key={i} className="checkText">{question.name}
+      <br></br>
+      <button onClick={checkedAnswer} id={question.id} type="button" data-value="present" className="next-question btn btn-success">Yes</button>
+      <br></br>
+      <button onClick={checkedAnswer}  id={question.id} type="button" data-value="absent" className="next-question btn btn-danger">No</button>
+      <br></br>
+      <div className="nextBtnWrapper"> <button onClick={nextQuestion} className="next-question btn">Next question</button> </div>
+      </label>
+       )}
+       </ul>
+    </form>
+  }
+
 
   const nextQuestion = async (e) => {
     //console.log("I am being clicked!!",)
