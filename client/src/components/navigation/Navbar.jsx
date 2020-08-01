@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = (props) => {
+const Navbar = ({logout}) => {
+  const [redirectTo, setRedirectTo] = useState(null);
+
+  const handleSubmit = (event) => {
+    // event.preventDefault();
+    const isLoggedOut = logout()
+ 
+    console.log("logout clicked");
+    if(isLoggedOut) {
+      setRedirectTo('/home');
+    }
+
+  };
+
   return (
     <>
       <div>
@@ -19,6 +32,9 @@ const Navbar = (props) => {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/news">News</Link>
+              </li>
+              <li className="nav-item">
+                <button className="nav-link" onClick={handleSubmit}>Logout</button>
               </li>
 
             </ul>
