@@ -6,12 +6,12 @@ import Assessment from '../components/members/Assessment';
 import Navbar from '../components/navigation/Navbar';
 import StateSearch from '../components/members/StateSearch';
 
-const Members = () => {
+const Members = (props) => {
   return (
     <>
       <div className="container mainWrapper">
         <Header />
-        <Navbar />
+        <Navbar logout={props.logout} />
         <h3 className="text-center pageTitle">Welcome to members dashboard!</h3>
 
         <div className="container">
