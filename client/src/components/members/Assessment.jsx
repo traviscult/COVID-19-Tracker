@@ -42,18 +42,17 @@ const Assessment = () => {
   }
 
   const groupMultiple = (items) => {
-    console.log("what we are printing", questionsObject.items)
-    return <form id="answerCheckBoxes">
-      <ul>{questionsObject.items.map((question, i) =>
-        <label key={i} className="checkText">{question.name}
-          <input onClick={checkedAnswer} id={question.id} type="checkbox" />
-          <span className="checkmark">
-          </span>
-        </label>
-      )}
-      </ul>
-    </form>
-
+  // console.log("what we are printing", questionsObject.items)
+  return <form id="answerCheckBoxes">
+  <ul>{questionsObject.items.map((question, i) => 
+  <label key={i} className="checkText">{question.name}
+  <input onClick={checkedAnswer} id={question.id} type="checkbox" />
+  <span className="checkmark">
+    </span>
+    </label>
+    )}
+    </ul> 
+  </form>
   }
 
   const groupSingle = (items) => {
