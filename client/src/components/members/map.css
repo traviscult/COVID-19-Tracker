@@ -7,7 +7,64 @@ path:hover {
   cursor: pointer;
 }
 
+.mapWrapper {
+  margin: 0 auto!important;
+  padding: 20px;
+  text-align: center;
+  background-color: #f5ecf0;
+  margin-top: 2rem!important;
+  box-shadow: 6px 1px 6px rgba(98, 98, 98, .2);
+}
+
 .mapCol {
-  height: 500px;
+  height: auto;
+  margin: 0 auto!important;
+  padding: 0;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.us-state-map {
+  height: 300px;
+  width: 500px;
+  margin: 0 auto!important;
+  padding: 0;
+}
+
+.stateDataText {
+  font-weight: bold;
+}
+
+.stateApiCallWrapper {
+  padding: 1rem;
   margin-bottom: 1rem;
+  background-color: #f5ecf0;
+  box-shadow: 6px 1px 6px rgba(98, 98, 98, .2);
+}
+
+.countyDataWrapper {
+  background-color: antiquewhite;
+  padding: .5rem;
+}
+
+.countyDataWrapper h5 {
+  font-weight: bold;
+  display: inline;
+  font-size: 1rem;
+}
+
+.dataNumber {
+  color: brown;
+}
+
+.dropdownOptionForm {
+  padding: .5rem;
+}
+
+.dropdownOptionForm label {
+  padding-right: .5rem;
+}
+
+.dropdownOptionForm select {
+  padding: .3rem;
 }

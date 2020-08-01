@@ -3,8 +3,6 @@ const db = require("../models");
 // Defining methods for the userController
 module.exports = {
   getUser: (req, res, next) => {
-    // console.log("GetUser being called in controller")
-    // console.log(req, 'get user');
     if (req.user) {
       return res.json({ user: req.user });
     } else {
@@ -12,7 +10,6 @@ module.exports = {
     }
   },
   register: (req, res) => {
-    // console.log("REGISTER BEING CALLED")
     const { name, age, race, gender, email, password, isLoggedIn } = req.body;
     // ADD VALIDATION
     db.User.findOne({ 'email': email }, (err, userMatch) => {
@@ -22,7 +19,7 @@ module.exports = {
         });
       }
       const newUser = new db.User({
-        
+
         'name': name,
         'age': age,
         'race': race,
@@ -33,7 +30,6 @@ module.exports = {
       });
       newUser.save((err, savedUser) => {
         if (err) return res.json(err);
-        console.log(savedUser);
         return res.json(savedUser);
       });
     });
@@ -47,18 +43,15 @@ module.exports = {
       return res.json({ msg: 'no user to log out!' });
     }
   },
-  auth: function(req, res, next) {
-		console.log("auth being called");
-		next();
+  auth: function (req, res, next) {
+    next();
   },
   authenticate: (req, res) => {
-    console.log("authenticate being called")
-		const user = JSON.parse(JSON.stringify(req.user)); // hack
-		const cleanUser = Object.assign({}, user);
-		if (cleanUser) {
-			// console.log(`Deleting ${cleanUser.password}`);
-			delete cleanUser.password;
-		}
-		res.json({ user: cleanUser });
-	}
+    const user = JSON.parse(JSON.stringify(req.user)); // hack
+    const cleanUser = Object.assign({}, user);
+    if (cleanUser) {
+      delete cleanUser.password;
+    }
+    res.json({ user: cleanUser });
+  }
 };

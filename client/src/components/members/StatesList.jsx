@@ -4,11 +4,11 @@ import './stateList.css';
 const StatesList = () => {
   return (
     <>
-      <div class="stateListWrapper">
+      <div className="stateListWrapper">
         <form action="/result" id="stateForm">
-          <div class="input-group mb-3 mt-3">
-            <div class="input-group-prepend">
-              <label for="state" class="stateListLabel"> Choose a state: </label> <br />
+          <div className="input-group mb-3 mt-3">
+            <div className="input-group-prepend">
+              <label for="state" className="stateListLabel"> Choose a state: </label> <br />
             </div>
             <select name="state" id="state" className="stateList">
               <option value="" selected="defaultValue">Select from here...</option>
@@ -64,7 +64,7 @@ const StatesList = () => {
               <option value="WI">Wisconsin</option>
               <option value="WY">Wyoming</option>
             </select>
-            <input type="submit" value="Submit" class="stateSubmitBtn"></input>
+            <input type="submit" value="Submit" className="stateSubmitBtn"></input>
           </div>
         </form>
       </div>

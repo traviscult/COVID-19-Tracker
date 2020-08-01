@@ -34,18 +34,20 @@ const Login = ({ login }) => {
 
   return (
     <>
-      <div className="col-12 col-md-6">
+      <div className="col-sm-12 col-md-6 px-5">
 
         <form>
           <div className="form-group">
-            <label for="email">Email</label>
+            <label htmlFor="email">Email</label>
             <input type="text" className="form-control" name="email" value={userObject.email} onChange={handleChange} placeholder="Email" />
           </div>
           <div className="form-group">
-            <label for="password">Password</label>
+            <label htmlFor="password">Password</label>
             <input type="password" className="form-control" name="password" value={userObject.password} onChange={handleChange} placeholder="Password" />
           </div>
-          <button type="submit" onClick={handleSubmit} className="btn btn-primary mb-4">Login</button>
+          <div className="text-center">
+            <button type="submit" onClick={handleSubmit} className="btn mb-4 loginBtn">Login</button>
+          </div>
         </form>
 
       </div>
