@@ -2,8 +2,8 @@ import React from 'react';
 import './news.css';
 import axios from "axios";
 
-const dotenv = require('dotenv');
-const env = dotenv.config().parsed;
+//const dotenv = require('dotenv');
+//const env = dotenv.config().parsed;
 
 export default class NewsComp extends React.Component {
   state = {

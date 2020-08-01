@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import API from "../../utils/API"
-import './assessments.css';
+import React, { useState, useEffect } from "react";
+import API from "../../utils/API";
+import "./assessments.css";
 
 const Assessment = () => {
   const [questionsObject, setQuestionsObject] = useState({
@@ -8,6 +8,7 @@ const Assessment = () => {
     text: "",
     type: "",
     choices: [],
+
   })
   // console.log(questionsObject)
 
@@ -24,14 +25,15 @@ const Assessment = () => {
       const answerArray = response.items.map(question => {
         return { id: question.id, choice_id: "absent" }
       })
+
       // console.log("ans arry", answerArray)
       setStoredAnswers(answerArray);
-    })
-
-  }, [])
+    });
+  }, []);
 
   const checkedAnswer = (e) => {
     const id = e.target.id;
+
     // console.log("made it here!", id)
     const foundAnswer = storedAnswers.find(answer => answer.id === id)
     // console.log("found answer", foundAnswer)
@@ -44,21 +46,26 @@ const Assessment = () => {
     setStoredAnswers(filteredArray);
   }
 
+
   const groupMultiple = (items) => {
-  // console.log("what we are printing", questionsObject.items)
-  return <form id="answerCheckBoxes">
-  <ul>{questionsObject.items.map((question, i) => 
-  <label key={i} className="checkText">{question.name}
-  <input onClick={checkedAnswer} id={question.id} type="checkbox" />
-  <span className="checkmark">
-    </span>
-    </label>
-    )}
-    </ul> 
-  </form>
-  }
+    // console.log("what we are printing", questionsObject.items)
+    return (
+      <form id="answerCheckBoxes">
+        <ul>
+          {questionsObject.items.map((question, i) => (
+            <label key={i} className="checkText">
+              {question.name}
+              <input onClick={checkedAnswer} id={question.id} type="checkbox" />
+              <span className="checkmark"></span>
+            </label>
+          ))}
+        </ul>
+      </form>
+    );
+  };
 
   const groupSingle = (items) => {
+
     return <form id="answerCheckBoxes">
       <ul>{questionsObject.items.map((question, i) =>
         <label key={i} className="checkText">{question.name}
@@ -71,19 +78,41 @@ const Assessment = () => {
     </form>
   }
 
+
   const single = () => {
-    return <div>
-      <button type="button" data-value="true" className="next-question btn btn-success">Yes</button>
-      <button type="button" data-value="false" className="next-question btn btn-danger">No</button>
-      <button type="button" data-value="unknown" className="next-question btn btn-info">Skip question</button>
-    </div>
-  }
+    return (
+      <div>
+        <button
+          type="button"
+          data-value="true"
+          className="next-question btn btn-success"
+        >
+          Yes
+        </button>
+        <button
+          type="button"
+          data-value="false"
+          className="next-question btn btn-danger"
+        >
+          No
+        </button>
+        <button
+          type="button"
+          data-value="unknown"
+          className="next-question btn btn-info"
+        >
+          Skip question
+        </button>
+      </div>
+    );
+  };
 
   const nextQuestion = async (e) => {
-    console.log("I am being clicked!!",)
+    //console.log("I am being clicked!!",)
     e.preventDefault();
-    console.log("on click store", storedAnswers)
+    //console.log("on click store", storedAnswers)
     const res = await API.postAnswers(storedAnswers);
+
     console.log("onclick res", res)
     if (res.data.should_stop) {
       setIsTriage(true)
@@ -117,25 +146,37 @@ const Assessment = () => {
     </div>
     )
   }
-  return (
 
+  return (
     <div className="col-sm-12 assessmentCol">
       <h5> Assess Your COVID-19 Risk</h5>
       <br></br>
-      <p className="text-center">Answer few questions to find out your symptoms and risk factors of the COVID-19. </p>
+      <p className="text-center">
+        Answer few questions to find out your symptoms and risk factors of the
+        COVID-19.{" "}
+      </p>
       <hr />
       {/* <Questionnaire /> */}
       <p className="font-weight-bold">{questionsObject.text}.</p>
       <br></br>
       <div>
-        {questionsObject.type === 'single' ? single() :
-          questionsObject.type === 'group_multiple' ? groupMultiple() :
-            groupSingle()}
-        {questionsObject.type !== 'single' ?
-          <div className="nextBtnWrapper"> <button onClick={nextQuestion} className="next-question btn">Next question</button> </div> : ''}
+        {questionsObject.type === "single"
+          ? single()
+          : questionsObject.type === "group_multiple"
+          ? groupMultiple()
+          : groupSingle()}
+        {questionsObject.type !== "single" ? (
+          <div className="nextBtnWrapper">
+            {" "}
+            <button onClick={nextQuestion} className="next-question btn">
+              Next question
+            </button>{" "}
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
-
-  )
-}
+  );
+};
 export default Assessment;
