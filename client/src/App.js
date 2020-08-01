@@ -27,7 +27,8 @@ function App() {
   }, []);
 
   const logout = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
+    console.log("clicked")
 
     AUTH.logout().then(response => {
       if (response.status === 200) {
@@ -87,7 +88,7 @@ function App() {
 
         {loggedIn && (
           <BrowserRouter>
-            <Route exact path="/" component={Members} />
+            <Route exact path="/" component={() => <Members logout={logout}/>} />
             <Route exact path="/news" component={News} />
             <Route exact path="/members" component={Members} />
           </BrowserRouter>
