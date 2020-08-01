@@ -5,9 +5,9 @@ import Login from './Login';
 const MainContents = (props) => {
   return (
     <>
-      <div className="row">
-        <Login login={props.login}/>
-        <Form signUpUser={props.signUpUser}/>
+      <div className="row formsWrapper">
+        <Login login={props.login} />
+        <Form signUpUser={props.signUpUser} />
       </div>
     </>
   )

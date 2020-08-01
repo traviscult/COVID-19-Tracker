@@ -3,18 +3,14 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import News from './pages/News';
 import Members from './pages/members'
-import Nav from './components/nav'
 import AUTH from './utils/AUTH';
-
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
-  // const [redirectTo, setRedirectTo] = useState(null);
 
   useEffect(() => {
     AUTH.getUser().then(response => {
-      // console.log(response, "response");
       if (!!response.data.user) {
         setLoggedIn(true);
         setUser(response.data.user);
@@ -34,7 +30,6 @@ function App() {
     event.preventDefault();
 
     AUTH.logout().then(response => {
-      // console.log(response.data);
       if (response.status === 200) {
         setLoggedIn(false);
         setUser(null);
@@ -44,7 +39,6 @@ function App() {
 
   const login = (email, password) => {
     AUTH.login(email, password).then(response => {
-      // console.log(response.data);
       if (response.status === 200) {
         // update the state
         setLoggedIn(true);
@@ -56,7 +50,6 @@ function App() {
   };
 
   const signUpUser = (userObject) => {
-    // event.preventDefault();
     console.log("CLICKED")
     // TODO - validate!
     AUTH.signup({
@@ -69,12 +62,10 @@ function App() {
       password: userObject.password,
       isLoggedIn: true
     }).then(response => {
-      // console.log(response);
       if (!response.data.errmsg) {
         console.log("LOGGED")
         setLoggedIn(true);
         setUser(response.data);
-        // setRedirectTo('/members');
       } else {
         console.log('duplicate');
       }
@@ -82,39 +73,27 @@ function App() {
 
   };
 
-
-
   return (
     <>
 
-      <div class="container-fluid mx-0 px-0">
+      <div className="container-fluid mx-0 px-0">
         {!loggedIn && (
           <BrowserRouter>
-
-
             <Route exact path="/" component={() => <Home signUpUser={signUpUser} login={login} />} />
             <Route exact path="/news" component={News} />
             <Route exact path="/members" component={Members} />
           </BrowserRouter>
-
-
         )}
 
         {loggedIn && (
           <BrowserRouter>
-
             <Route exact path="/" component={Members} />
             <Route exact path="/news" component={News} />
             <Route exact path="/members" component={Members} />
-            <Nav user={user} logout={logout} />
           </BrowserRouter>
-
-
         )}
       </div>
-
     </>
-
   );
 }
 export default App;

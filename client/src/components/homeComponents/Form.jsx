@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-// import AUTH from '../../utils/AUTH';
-// import App from '../../App'
 import './Form.css';
 
 function SignupForm(props) {
@@ -17,7 +15,6 @@ function SignupForm(props) {
   const [redirectTo, setRedirectTo] = useState(null);
 
   const handleChange = (event) => {
-    // console.log(event.target.value)
     setUserObject({
       ...userObject,
       [event.target.name]: event.target.value
@@ -41,30 +38,16 @@ function SignupForm(props) {
     setRedirectTo('/members')
 
       ;
-    // AUTH.login({
-    //   name: userObject.name,
-    //   password: userObject.password
-    // }.then(response => {
-    //   console.log(response.data);
-    //   if (response.status === 200) {
-    //     console.log("LOGGED IN")
-    //     // update the state
-    //     // setLoggedIn(true);
-    //     // setUser(response.data.user);
-    //   }
-    // }));
+
   };
-  // if (redirectTo) {
-  //   return <Redirect to={{ pathname: redirectTo }} />
-  // }
   if (redirectTo) {
     return <Redirect to={{ pathname: redirectTo }} />
   }
 
   return (
     <>
-      <div className="col-12 col-md-6 formCol">
-        <h6 className="text-center pb-4">New users: fill out this form to sign up.</h6>
+      <div className="col-sm-12 col-md-6 formCol">
+        <h5 className="text-center pb-4">New users: fill out this form to sign up.</h5>
         <form>
 
           <div className="input-group mb-3">
@@ -74,21 +57,12 @@ function SignupForm(props) {
             <input type="text" className="form-control" name="name" value={userObject.name} onChange={handleChange} placeholder="Enter your name" />
           </div>
 
-          {/* <div className="form-group">
-            <label for="name">Name</label>
-            <input type="text" className="form-control" name="name" value={userObject.name} onChange={handleChange} placeholder="Enter your name" />
-          </div> */}
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text">Age</span>
             </div>
             <input type="text" className="form-control" name="age" value={userObject.age} onChange={handleChange} placeholder="Enter your age" />
           </div>
-
-          {/* <div className="form-group">
-            <label for="age">Age</label>
-            <input type="text" className="form-control" name="age" value={userObject.age} onChange={handleChange} placeholder="Age" />
-          </div> */}
 
           <div className="col-12 raceBtnWrapper">
             <div className="btn-group">
@@ -124,11 +98,6 @@ function SignupForm(props) {
             <input type="email" className="form-control" id="exampleInputEmail1" name="email" value={userObject.email} onChange={handleChange} aria-describedby="emailHelp" placeholder="Enter your email" />
           </div>
 
-          {/* <div className="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" className="form-control" id="exampleInputEmail1" name="email" value={userObject.email} onChange={handleChange} aria-describedby="emailHelp" placeholder="Enter your email" />
-          </div> */}
-
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text">Password</span>
@@ -136,22 +105,12 @@ function SignupForm(props) {
             <input type="password" className="form-control" id="exampleInputPassword1" name="password" value={userObject.password} onChange={handleChange} placeholder="Enter you password" />
           </div>
 
-          {/* <div className="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" className="form-control" id="exampleInputPassword1" name="password" value={userObject.password} onChange={handleChange} placeholder="Enter you password" />
-          </div> */}
-
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text">Confirm Password</span>
             </div>
             <input type="password" className="form-control" id="exampleInputPassword2" name="confirmPassword" value={userObject.confirmPassword} onChange={handleChange} placeholder="Re-Enter you password" />
           </div>
-
-          {/* <div className="form-group">
-            <label for="exampleInputPassword1">Confirm Password</label>
-            <input type="password" className="form-control" id="exampleInputPassword1" name="confirmPassword" value={userObject.confirmPassword} onChange={handleChange} placeholder="Re-Enter you password" />
-          </div> */}
 
           <div className="signUpBtnWrapper text-center"> <button type="submit" onClick={handleSubmit} className="btn signUpBtn text-center">Sign Up</button> </div>
         </form>

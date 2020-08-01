@@ -1,4 +1,4 @@
-.resultContentWrapper {
+.newsContentWrapper {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -8,23 +8,11 @@
 
 .newsCol {
   padding: 2rem;
-  border: 1px solid #999;
+  border: 1px solid #b8b5b5;
   background-color: rgba(255, 255, 255, .4);
   margin: 0 auto;
   margin: .5rem;
   border-radius: 10px;
-}
-
-.resultPageTitle {
-  text-align: center;
-  color: brown;
-  font-weight: bold;
-  text-shadow: 4px 4px 8px rgba(255, 255, 255, .5);
-  margin-bottom: 2rem;
-}
-
-.newsSource {
-  color: rgb(25, 129, 98);
 }
 
 .newsTitle {
@@ -32,7 +20,11 @@
 }
 
 .newsTitleLine {
-  font-variant: small-caps;
   font-weight: bold;
-  color: rgb(144, 44, 8)!important;
+  color: #22075f!important;
+}
+
+.newsType {
+  font-weight: bold;
+  color: #198162;
 }

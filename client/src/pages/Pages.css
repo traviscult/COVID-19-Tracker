@@ -1,11 +1,9 @@
-/* All pages */
+/* All pages common styles */
 
 body {
   background-image: url("/../../../images/body-bg-img-500.jpg");
   background-repeat: repeat;
 }
-
-/* Sign in - Sign up (Home) page */
 
 .mainWrapper {
   padding: 1rem;
@@ -14,70 +12,10 @@ body {
   border-radius: 10px;
 }
 
-.homePageContent h2 {
+.pageTitle {
   text-align: center;
   color: brown;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.4);
-}
-
-.homePageContent p {
-  text-align: center;
-  color: #22075f;
-  margin-top: 2rem;
-}
-
-.homePageContent #signIn {
-  text-align: center;
-  color: #188557;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.homePageContent #signIn:hover {
-  color: brown;
-  cursor: pointer;
-  text-decoration: underline;
-  opacity: .5;
-}
-
-.leftBar h5 {
-  color: #22075f;
-  font-weight: bold;
-}
-
-.leftBar hr {
-  width: 50%;
-  margin: .5rem auto;
-  text-align: center;
-}
-
-.listUl {
-  list-style-type: none;
-  text-align: center;
-}
-
-.listTitle {
-  color: #22075f;
-  font-weight: bold;
-  font-size: .9rem;
-}
-
-.listNumber {
-  color: brown;
-  font-weight: bold;
-  font-size: 1.7rem;
-}
-
-.listUpdated {
-  color: brown;
-  color: #22075f;
-  font-weight: bold;
-  font-size: .6rem;
-}
-
-/* Result page main */
-
-.resultContentWrapper {
-  margin: 0 auto;
+  padding: 1rem;
 }

@@ -5,7 +5,7 @@ import axios from "axios";
 const dotenv = require('dotenv');
 const env = dotenv.config().parsed;
 
-export default class News extends React.Component {
+export default class NewsComp extends React.Component {
   state = {
     source: [],
     title: [],
@@ -19,8 +19,8 @@ export default class News extends React.Component {
     axios.get("https://api.nytimes.com/svc/search/v2/articlesearch.json?q=covid&api-key=" + APIkey)
       .then(res => {
 
-        this.setState({ source:res.data.response.docs })
-        
+        this.setState({ source: res.data.response.docs })
+
       })
   };
 
@@ -31,8 +31,8 @@ export default class News extends React.Component {
           if (idx < 10) {
             return (
               <div className="col-sm-12 col-md-5 newsCol">
-                <p><span className="newsTitle"> Title:</span> <a href={doc.web_url} target="_blank" rel="noopener noreferrer" className="newsTitleLine">{doc.headline.main}</a></p>
-                <p className="newsDescription">{doc.type_of_material}</p>
+                <p><span className="newsTitle"> Title:</span> <a href={doc.web_url} target="_blank" rel="noopener noreferrer" className="newsTitleLine"><em>{doc.headline.main}</em></a></p>
+                <p className="newsType">{doc.type_of_material}</p>
                 <p className="newsDescription">{doc.snippet}</p>
               </div>
             )

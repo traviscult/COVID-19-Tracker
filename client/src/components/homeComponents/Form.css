@@ -1,3 +1,7 @@
+.formsWrapper {
+  margin: 1rem;
+}
+
 .formCol {
   border: 1px solid #bcbdbd;
   background-color: rgba(213, 221, 221, 0.2);
@@ -6,9 +10,13 @@
   margin-bottom: 1rem;
 }
 
-.signUpBtn {
+.signUpBtn, .loginBtn {
   background-color: #33b8a2;
   color: white;
+}
+
+.loginBtn {
+  margin: 0 auto!important;
 }
 
 input:focus::placeholder {
