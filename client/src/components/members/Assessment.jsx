@@ -9,20 +9,20 @@ const Assessment = () => {
     type: "",
     choices: [],
   })
-  console.log(questionsObject)
+  //console.log(questionsObject)
 
   const [storedAnswers, setStoredAnswers] = useState([])
 
   useEffect(() => {
-    console.log("This is being called")
+    //console.log("This is being called")
     API.getQuestions().then(res => {
-      console.log("assessment", res.data)
+      //console.log("assessment", res.data)
       const response = res.data.question
       setQuestionsObject(response)
       const answerArray = response.items.map(question => {
         return { id: question.id, choice_id: "absent" }
       })
-      console.log("ans arry", answerArray)
+      // console.log("ans arry", answerArray)
       setStoredAnswers(answerArray);
     })
 
@@ -31,18 +31,18 @@ const Assessment = () => {
   const checkedAnswer = (e) => {
     const id = e.target.id;
     const foundAnswer = storedAnswers.find(answer => answer.id === id)
-    console.log("found answer", foundAnswer)
+    // console.log("found answer", foundAnswer)
     // foundAnswer.choice_id="absent"
     const newAnswer = foundAnswer.choice_id === "present" ? "absent" : "present";
     const filteredArray = storedAnswers.filter(answer => answer.id !== id)
     // console.log("filter", filteredArray)
     filteredArray.push({ id: id, choice_id: newAnswer })
-    console.log("filter2", filteredArray)
+    //console.log("filter2", filteredArray)
     setStoredAnswers(filteredArray)
   }
 
   const groupMultiple = (items) => {
-    console.log("what we are printing", questionsObject.items)
+    //console.log("what we are printing", questionsObject.items)
     return <form id="answerCheckBoxes">
       <ul>{questionsObject.items.map((question, i) =>
         <label key={i} className="checkText">{question.name}
@@ -78,17 +78,17 @@ const Assessment = () => {
   }
 
   const nextQuestion = async (e) => {
-    console.log("I am being clicked!!",)
+    //console.log("I am being clicked!!",)
     e.preventDefault();
-    console.log("on click store", storedAnswers)
+    //console.log("on click store", storedAnswers)
     const res = await API.postAnswers(storedAnswers);
-    console.log("onclick res", res)
+    //console.log("onclick res", res)
     const response = res.data.question
     setQuestionsObject(response)
     const answerArray = response.items.map(question => {
       return { id: question.id, choice_id: "absent" }
     })
-    console.log("ans arry", answerArray)
+    //console.log("ans arry", answerArray)
     setStoredAnswers(answerArray);
     document.getElementById("answerCheckBoxes").reset();
 
