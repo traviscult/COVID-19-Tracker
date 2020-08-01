@@ -4,15 +4,14 @@
 [![Active](https://img.shields.io/badge/Status-Active-green.svg)](https://shields.io/)  
 [![Development](https://img.shields.io/badge/Version-Development-blue.svg)](https://shields.io/)  
 
-- A Corona Virus informational application that allows users to view current data.
+A Corona Virus informational application that allows users to view current data.
 
-<div align="center"><img src="client/public/images/Main.png" width="800" alt="main"></div>
-<div align="center"><img src="client/public/images/Members.png" width="800" alt="main"></div>
-<div align="center"><img src="client/public/images/News.png" width="800" alt="main"></div>
+<div align="center"><img src="client/public/images/Main.png" width="500" alt="main"></div>
 
 ## User Story
 
 As a person living within the United States, I want to check to see the current active cases in my state and county as well as check my current symptoms, so that I can ensure that I am acting appropriately and keep track of my state and county's progress in the pandemic.
+<div align="center"><img src="client/public/images/Members.png" width="500" alt="main"></div>
 
 ## Table of Contents
 * [Description](#description)
@@ -25,6 +24,8 @@ As a person living within the United States, I want to check to see the current 
 
 ## Description
 This application, powered by React.JS and JavaScript, will allow the user to create a profile and allow them to use a symptom checker and map to find out information. It will allow the user to fill out a questionnaire that will advise the user on triage levels and if further medical intervention is needed. The map allows the user to click on their state and county and see the current active cases and deaths. This application also provides up-to-date news articles on COVID-19.
+
+<div align="center"><img src="client/public/images/News.png" width="500" alt="main"></div>
 
 ## Demo
 Visit https://covid19-tracker-applicaiton.herokuapp.com/ to see the live demo.
