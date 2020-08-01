@@ -19,3 +19,19 @@ body {
   text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.4);
   padding: 1rem;
 }
+
+.logoutBtn {
+  background-color: brown;
+  color: #fff!important;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  padding: .3rem 1rem .5rem 1rem;
+}
+
+.logoutBtn:hover {
+  background-color: rgb(195, 83, 83);
+  color: #fff!important;
+  border-radius: 10px;
+  outline: none;
+}
