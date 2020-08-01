@@ -1,14 +1,21 @@
 const axios = require("axios");
 const db = require("../models/user");
-
+const dotenv = require('dotenv');
+const env = dotenv.config().parsed;
+const APPid =process.env.REACT_APP_SYMPTOM_ID
+const APPkey =process.env.REACT_APP_SYMPTOM_KEY
+// console.log(REACT_APP_SYMPTOM_ID)
+// console.log(REACT_APP_SYMPTOM_KEY)
 
 module.exports = {
+  
 
     questions: function(res){
+     
         axios.get('https://api.infermedica.com/covid19/symptoms', {
             headers: {
-                "App-Id": 'f3ec44a2', 
-                "App-Key": 'ea2e478aeea48ed264c553324544937e' 
+                "App-Id": APPid, 
+                "App-Key": APPkey 
             }
          }).then(response => {
           //  console.log("response", response)
@@ -22,8 +29,8 @@ module.exports = {
             url: 'https://api.infermedica.com/covid19/diagnosis',
             method: 'POST',
             headers: {
-              'App-Id': 'f3ec44a2',
-              'App-Key': 'ea2e478aeea48ed264c553324544937e'
+              "App-Id": APPid, 
+                "App-Key": APPkey 
               //   'Content-Type': 'application/json'
             },
             data: {
