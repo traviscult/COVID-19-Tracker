@@ -26,14 +26,14 @@ export default class CountyDropdown extends React.Component {
 
     async getCounty(value) {
         let province = this.props.state.province;
-        console.log(province);
+        //console.log(province);
         let res = await axios.get("https://corona.azure-api.net/country/us/" + province + "/" + value);
         this.setState({
             deaths: res.data.Deaths,
             active: res.data.Active
         });
-        console.log("deaths", this.state.deaths);
-        console.log("active", this.state.active);
+        //console.log("deaths", this.state.deaths);
+        //console.log("active", this.state.active);
     };
 
     render() {
@@ -43,10 +43,12 @@ export default class CountyDropdown extends React.Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit} className="dropdownOptionForm">
-                    <label> Choose a County:                         <select value={this.state.value} onChange={this.handleChange}>
-                        <option value="" selected="defaultValue">Select from here...</option>
-                        {countyoptions}
-                    </select>
+                    <label> Choose a County:
+                    <select value={this.state.value} onChange={this.handleChange}>
+                            {/* <option value="" selected="defaultValue">Select from here...</option> */}
+                            <option value="">Select from here...</option>
+                            {countyoptions}
+                        </select>
                         <input type="submit" value="Click to view the data below" className="stateSubmitBtn" ></input>
                     </label>
                 </form>

@@ -23,7 +23,7 @@ function SignupForm(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("CLICKED")
+    //console.log("CLICKED")
     // TODO - validate!
     props.signUpUser({
 

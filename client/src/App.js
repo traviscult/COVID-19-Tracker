@@ -27,7 +27,8 @@ function App() {
   }, []);
 
   const logout = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
+    console.log("clicked")
 
     AUTH.logout().then(response => {
       if (response.status === 200) {
@@ -50,7 +51,7 @@ function App() {
   };
 
   const signUpUser = (userObject) => {
-    console.log("CLICKED")
+    // console.log("CLICKED")
     // TODO - validate!
     AUTH.signup({
 
@@ -63,11 +64,11 @@ function App() {
       isLoggedIn: true
     }).then(response => {
       if (!response.data.errmsg) {
-        console.log("LOGGED")
+        //  console.log("LOGGED")
         setLoggedIn(true);
         setUser(response.data);
       } else {
-        console.log('duplicate');
+        //   console.log('duplicate');
       }
     });
 
@@ -87,9 +88,9 @@ function App() {
 
         {loggedIn && (
           <BrowserRouter>
-            <Route exact path="/" component={Members} />
-            <Route exact path="/news" component={News} />
-            <Route exact path="/members" component={Members} />
+            <Route exact path="/" component={() => <Members logout={logout}/>} />
+            <Route exact path="/news" component={() => <News logout={logout}/>} />
+            <Route exact path="/members" component={() => <Members logout={logout}/>}  />
           </BrowserRouter>
         )}
       </div>
