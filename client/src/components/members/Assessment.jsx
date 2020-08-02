@@ -8,47 +8,35 @@ const Assessment = () => {
     text: "",
     type: "",
     choices: [],
-
-  })
-  // console.log(questionsObject)
-
-  const [storedAnswers, setStoredAnswers] = useState([])
-  const [isTriage, setIsTriage] = useState(false)
-  const [triageResult, setTriageResult] = useState({})
+  });
+  const [storedAnswers, setStoredAnswers] = useState([]);
+  const [isTriage, setIsTriage] = useState(false);
+  const [triageResult, setTriageResult] = useState({});
 
   useEffect(() => {
-    console.log("use effect This is being called")
-    API.getQuestions().then(res => {
-      console.log(" use effect assessment", res.data)
-      const response = res.data.question
-      setQuestionsObject(response)
-      const answerArray = response.items.map(question => {
-        return { id: question.id, choice_id: "absent" }
-      })
-
-      // console.log("ans arry", answerArray)
+    console.log("use effect This is being called");
+    API.getQuestions().then((res) => {
+      console.log(" use effect assessment", res.data);
+      const response = res.data.question;
+      setQuestionsObject(response);
+      const answerArray = response.items.map((question) => {
+        return { id: question.id, choice_id: "absent" };
+      });
       setStoredAnswers(answerArray);
     });
   }, []);
 
   const checkedAnswer = (e) => {
     const id = e.target.id;
-
-    // console.log("made it here!", id)
-    const foundAnswer = storedAnswers.find(answer => answer.id === id)
-    // console.log("found answer", foundAnswer)
-    const newAnswer = foundAnswer.choice_id === "present" ? "absent" : "present";
-    // console.log("new Answer", newAnswer)
-    const filteredArray = storedAnswers.filter(answer => answer.id !== id)
-    // console.log("filter", filteredArray)
-    filteredArray.push({ id: id, choice_id: newAnswer })
-    // console.log("filter2", filteredArray)
+    const foundAnswer = storedAnswers.find((answer) => answer.id === id);
+    const newAnswer =
+      foundAnswer.choice_id === "present" ? "absent" : "present";
+    const filteredArray = storedAnswers.filter((answer) => answer.id !== id);
+    filteredArray.push({ id: id, choice_id: newAnswer });
     setStoredAnswers(filteredArray);
-  }
-
+  };
 
   const groupMultiple = (items) => {
-    // console.log("what we are printing", questionsObject.items)
     return (
       <form id="answerCheckBoxes">
         <ul>
@@ -65,77 +53,102 @@ const Assessment = () => {
   };
 
   const groupSingle = (items) => {
-
-    return <form id="answerCheckBoxes">
-      <ul>{questionsObject.items.map((question, i) =>
-        <label key={i} className="checkText">{question.name}
-          <input onClick={checkedAnswer} id={question.id} type="radio" name="answer" value="present"/>
-           <span className="checkmark">
-           </span> 
-        </label>
-      )}
-      </ul>
-    </form>
-  }
-
+    return (
+      <form id="answerCheckBoxes">
+        <ul>
+          {questionsObject.items.map((question, i) => (
+            <label key={i} className="checkText">
+              {question.name}
+              <input
+                onClick={checkedAnswer}
+                id={question.id}
+                type="radio"
+                name="answer"
+                value="present"
+              />
+              <span className="checkmark"></span>
+            </label>
+          ))}
+        </ul>
+      </form>
+    );
+  };
 
   const single = () => {
-    return <form id="answerCheckBoxes">
-      <ul>{questionsObject.items.map((question, i) =>
-      <label key={i} className="checkText">{question.name}
-      <br></br>
-      <button onClick={checkedAnswer} id={question.id} type="button" data-value="present" className="next-question btn btn-success">Yes</button>
-      <br></br>
-      <button onClick={checkedAnswer}  id={question.id} type="button" data-value="absent" className="next-question btn btn-danger">No</button>
-      <br></br>
-      <div className="nextBtnWrapper"> <button onClick={nextQuestion} className="next-question btn">Next question</button> </div>
-      </label>
-       )}
-       </ul>
-    </form>
-  }
-
+    return (
+      <form id="answerCheckBoxes">
+        <ul>
+          {questionsObject.items.map((question, i) => (
+            <label key={i} className="checkText">
+              {question.name}
+              <br></br>
+              <button
+                onClick={checkedAnswer}
+                id={question.id}
+                type="button"
+                data-value="present"
+                className="next-question btn btn-success"
+              >
+                Yes
+              </button>
+              <br></br>
+              <button
+                onClick={checkedAnswer}
+                id={question.id}
+                type="button"
+                data-value="absent"
+                className="next-question btn btn-danger"
+              >
+                No
+              </button>
+              <br></br>
+              <div className="nextBtnWrapper">
+                {" "}
+                <button onClick={nextQuestion} className="next-question btn">
+                  Next question
+                </button>{" "}
+              </div>
+            </label>
+          ))}
+        </ul>
+      </form>
+    );
+  };
 
   const nextQuestion = async (e) => {
-    //console.log("I am being clicked!!",)
     e.preventDefault();
-    //console.log("on click store", storedAnswers)
     const res = await API.postAnswers(storedAnswers);
 
-    console.log("onclick res", res)
+    console.log("onclick res", res);
     if (res.data.should_stop) {
-      setIsTriage(true)
-      console.log("made it to reroute")
+      setIsTriage(true);
+      console.log("made it to reroute");
 
-       const triageRes = await API.callTriage(storedAnswers)
-       console.log("triage res", triageRes)
-       setTriageResult(triageRes.data)
-      //  console.log(triageResult)
+      const triageRes = await API.callTriage(storedAnswers);
+      console.log("triage res", triageRes);
+      setTriageResult(triageRes.data);
       return;
-      
     }
-    const response = res.data.question
-    setQuestionsObject(response)
-    const answerArray = response.items.map(question => {
-      return { id: question.id, choice_id: "absent" }
-    })
+    const response = res.data.question;
+    setQuestionsObject(response);
+    const answerArray = response.items.map((question) => {
+      return { id: question.id, choice_id: "absent" };
+    });
     const previousAnswers = [...storedAnswers];
-    // console.log("ans arry", answerArray)
-    const combinedAnswers = answerArray.concat(previousAnswers)
+    const combinedAnswers = answerArray.concat(previousAnswers);
     setStoredAnswers(combinedAnswers);
     if (!isTriage) {
       document.getElementById("answerCheckBoxes").reset();
     }
-
-  }
-  if (isTriage){
+  };
+  if (isTriage) {
     return (
-    <div>
-      <h1>{triageResult.triage_level}</h1>
-      <br></br>
-      <p>{triageResult.triage_level}</p>
-    </div>
-    )
+      <div>
+        <h1>{triageResult.triage_level}</h1>
+        <br></br>
+        <p>{triageResult.triage_level}</p>
+      </div>
+    );
   }
 
   return (
@@ -147,7 +160,6 @@ const Assessment = () => {
         COVID-19.{" "}
       </p>
       <hr />
-      {/* <Questionnaire /> */}
       <p className="font-weight-bold">{questionsObject.text}.</p>
       <br></br>
       <div>
@@ -166,6 +178,20 @@ const Assessment = () => {
         ) : (
           ""
         )}
+      </div>
+      <div className="text-left disclaimer">
+        <hr />
+        <small>
+          <span className="disclosure">Disclosure: </span>
+          Please be advised the Covid sympotm checker is not a diagnosis, it is
+          for informational purposes only and does not represent, in any way, a
+          qualified medical opinion. The symptom checker and its results are
+          entirely based on WHO and CDC guidelines concerning COVID-19 only. If
+          this is an emergency, call your local emergency number immediately. Do
+          not proceed with the symptom checker. Medical attention is required
+          immediately. Your data is safe. Information that you provide is
+          anonymous and not shared with anyone.
+        </small>
       </div>
     </div>
   );
