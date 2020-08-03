@@ -133,7 +133,7 @@ const Assessment = () => {
     <div>
       <h1>{triageResult.triage_level}</h1>
       <br></br>
-      <p>{triageResult.triage_level}</p>
+      <p>{triageResult.description}</p>
     </div>
     )
   }
