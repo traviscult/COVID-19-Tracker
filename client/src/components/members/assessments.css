@@ -95,6 +95,11 @@ ul {
   transform: rotate(45deg);
 }
 
+.btn-choice{
+  background-color: #33b8a293 ;
+  margin: 15px;
+}
+
 .nextBtnWrapper {
   text-align: center;
 }
@@ -102,6 +107,7 @@ ul {
 .next-question {
   background-color: #33b8a2;
   color: white;
+  align-content: center;
 }
 
 .disclaimer {
