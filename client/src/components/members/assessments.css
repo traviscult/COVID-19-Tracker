@@ -1,3 +1,31 @@
+.membersPageTitle {
+  text-align: center;
+  color: brown;
+  font-weight: bold;
+  text-shadow: 4px 4px 8px rgba(255, 255, 255, .5);
+  margin-bottom: 2rem;
+}
+
+.assessmentCol {
+  background-color: #f5ecf0;
+  box-shadow: 6px 1px 6px rgba(98, 98, 98, .2);
+  height: auto;
+  margin-top: 2rem;
+  padding: 2rem;
+}
+
+.assessmentCol h5 {
+  text-align: center;
+  color: #22075f;
+  font-weight: bold;
+  margin-top: .5rem;
+}
+
+.assessmentCol h6 {
+  padding: 0 1rem;
+  text-align: center;
+}
+
 ul {
   list-style-type: none;
 }
@@ -67,34 +95,6 @@ ul {
   transform: rotate(45deg);
 }
 
-.membersPageTitle {
-  text-align: center;
-  color: brown;
-  font-weight: bold;
-  text-shadow: 4px 4px 8px rgba(255, 255, 255, .5);
-  margin-bottom: 2rem;
-}
-
-.assessmentCol {
-  background-color: #f5ecf0;
-  box-shadow: 6px 1px 6px rgba(98, 98, 98, .2);
-  height: auto;
-  margin-top: 2rem;
-  padding: 2rem;
-}
-
-.assessmentCol h5 {
-  text-align: center;
-  color: #22075f;
-  font-weight: bold;
-  margin-top: .5rem;
-}
-
-.assessmentCol h6 {
-  padding: 0 1rem;
-  text-align: center;
-}
-
 .nextBtnWrapper {
   text-align: center;
 }
@@ -102,4 +102,14 @@ ul {
 .next-question {
   background-color: #33b8a2;
   color: white;
+}
+
+.disclaimer {
+  line-height: 1;
+  font-size: .8rem
+}
+
+.disclosure {
+  font-weight: bold;
+  font-size: .8rem
 }
