@@ -149,6 +149,20 @@ const Assessment = () => {
       <p>{triageResult.description}</p>
       <br></br>
       <p>{triageResult.label}</p>
+      <div className="text-left disclaimer">
+        <hr />
+        <small>
+          <span className="disclosure">Disclosure: </span>
+          Please be advised the Covid sympotm checker is not a diagnosis, it is
+          for informational purposes only and does not represent, in any way, a
+          qualified medical opinion. The symptom checker and its results are
+          entirely based on WHO and CDC guidelines concerning COVID-19 only. If
+          this is an emergency, call your local emergency number immediately. Do
+          not proceed with the symptom checker. Medical attention is required
+          immediately. Your data is safe. Information that you provide is
+          anonymous and not shared with anyone.
+        </small>
+      </div>
 
     </div>
     )
