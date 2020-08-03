@@ -104,6 +104,17 @@ ul {
   color: white;
 }
 
+.yes_no_wrapper {
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+}
+
+.yes_no_button {
+  margin: 1rem 0;
+}
+
 .disclaimer {
   line-height: 1;
   font-size: .8rem

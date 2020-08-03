@@ -81,28 +81,28 @@ const Assessment = () => {
           {questionsObject.items.map((question, i) => (
             <label key={i} className="checkText">
               {question.name}
-              <br></br>
-              <button
-                onClick={checkedAnswer}
-                id={question.id}
-                type="button"
-                data-value="present"
-                className="next-question btn btn-success"
-              >
-                Yes
-              </button>
-              <br></br>
-              <button
-                onClick={checkedAnswer}
-                id={question.id}
-                type="button"
-                data-value="absent"
-                className="next-question btn btn-danger"
-              >
-                No
-              </button>
-              <br></br>
-              <div className="nextBtnWrapper">
+              <div className="col-12 yes_no_wrapper">
+                <button
+                  onClick={checkedAnswer}
+                  id={question.id}
+                  type="button"
+                  data-value="present"
+                  className="yes_no_button btn btn-success"
+                >
+                  Yes
+                </button>
+                <button
+                  onClick={checkedAnswer}
+                  id={question.id}
+                  type="button"
+                  data-value="absent"
+                  className="yes_no_button btn btn-danger"
+                >
+                  No
+                </button>
+              </div>
+
+              <div className="col-12 nextBtnWrapper">
                 {" "}
                 <button onClick={nextQuestion} className="next-question btn">
                   Next question
