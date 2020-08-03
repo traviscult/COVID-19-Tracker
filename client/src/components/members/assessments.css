@@ -95,26 +95,29 @@ ul {
   transform: rotate(45deg);
 }
 
-.btn-choice{
-  background-color: #33b8a293 ;
+.btn-choice {
+  background-color: #33b8a293;
   margin: 15px;
 }
 
 .nextBtnWrapper {
+  margin-left: 0;
+  text-align: center;
+}
+
+.checkTextFinal {
+  margin-left: 0;
+  padding-left: 0;
   text-align: center;
 }
 
 .next-question {
   background-color: #33b8a2;
   color: white;
-  align-content: center;
 }
 
 .yes_no_wrapper {
-  display: flex;
-  justify-content: space-around;
-  padding: 0;
-  margin: 0;
+  text-align: center;
 }
 
 .yes_no_button {

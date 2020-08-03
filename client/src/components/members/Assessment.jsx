@@ -79,7 +79,7 @@ const Assessment = () => {
       <form id="answerCheckBoxes">
         <ul>
           {questionsObject.items.map((question, i) => (
-            <label key={i} className="checkText">
+            <label key={i} className="checkText checkTextFinal">
               {question.name}
               <br></br>
               <button
@@ -103,10 +103,9 @@ const Assessment = () => {
               </button>
               <br></br>
               <div className="nextBtnWrapper">
-                {" "}
                 <button onClick={nextQuestion} className="next-question btn">
                   Next question
-                </button>{" "}
+                </button>
               </div>
             </label>
           ))}
