@@ -34,11 +34,9 @@ Travis Cultreri: https://github.com/traviscult
 Cate Dunn: https://github.com/CateDunn  
 Joy Chen: https://github.com/joychen5069  
 Shiva Sharma: https://github.com/ssh1sharma  
-Britt Melia: https://github.com/meliabt19  
-Edrick Ngouyassa: https://github.com/eddyngojr  
 
 ## Questions
-If you see any improvements that can be made, please visit the gitHub page at https://github.com/traviscult/project-3
+If you see any improvements that can be made, please email me at joychen5069@gmail.com or visit the gitHub page at https://github.com/joychen5069/COVID-App
 
 ### Credits:
 
