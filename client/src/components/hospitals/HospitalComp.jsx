@@ -18,15 +18,29 @@ export default class HospitalsPage extends React.Component {
 componentDidMount() {
     mapboxgl.accessToken = 'pk.eyJ1Ijoiam95Y2hlbjUwNjkiLCJhIjoiY2tkc3ZsMWp0MG1hMTJybnhpNW9wbDh3NyJ9.7jiZP4oIoTlXI--KIOjT5A'
     
-    const mapDiv = document.getElementById('map');
-    if(mapDiv.style.visibility === true) map.resize();
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } 
+      }
+      
+      function showPosition(position) {
+          const userLat = position.coords.latitude.toFixed(2);
+          const userLon = position.coords.longitude.toFixed(2);
+        console.log(userLat, userLon) 
+      
+
+ 
 
     const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
-        center: [-77.04, 38.907],
-        zoom: 9
+        center: [userLon, userLat],
+        zoom: 10
     });
+   
+}
+   getLocation()     
 };
 
 
@@ -34,7 +48,9 @@ componentDidMount() {
 render() {
     return (
         <>
+        <div className="col-9">
             <div id='map'>map</div>
+            </div>
         </>
     )
 }

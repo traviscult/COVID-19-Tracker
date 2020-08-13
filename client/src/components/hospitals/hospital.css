@@ -1,6 +1,7 @@
 .mapboxgl-canvas {
-  position: relative;
+  position: static;
   /* height: 500px !important; */
-  margin-bottom: 100px;
+  margin-bottom: 30px;
   
 }
+
