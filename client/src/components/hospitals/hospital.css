@@ -1,7 +1,13 @@
 .mapboxgl-canvas {
-  position: static;
+  position: relative;
   /* height: 500px !important; */
   margin-bottom: 30px;
   
+}
+.mapboxgl-canvas-container,
+.mapboxgl-interactive,
+.mapboxgl-touch-drag-pan,
+.mapboxgl-touch-zoom-rotate {
+  height: 40vh !important;
 }
 
