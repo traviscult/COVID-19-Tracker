@@ -11,3 +11,12 @@
   height: 40vh !important;
 }
 
+.mapboxgl-ctrl-geocoder--input {
+  color: black;
+  background-color: white;
+}
+
+.suggestions {
+  color: black;
+  background-color: white;
+}

@@ -14,11 +14,15 @@ export default class HospitalsPage extends React.Component {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
             }
+            else {
+                let userLat = 35.78;
+                let userLon = -78.64;
+            }
         }
 
         const showPosition = (position) => {
-            const userLat = position.coords.latitude.toFixed(2);
-            const userLon = position.coords.longitude.toFixed(2);
+            let userLat = position.coords.latitude.toFixed(2);
+            let userLon = position.coords.longitude.toFixed(2);
             console.log(userLat, userLon)
 
             const map = new mapboxgl.Map({
@@ -44,7 +48,8 @@ export default class HospitalsPage extends React.Component {
         return (
             <>
                 <div className="col">
-                    <div id='map'>map</div>
+                    <h3>Search for nearby Health Centers and Hospitals here</h3>
+                    <div id='map'></div>
                 </div>
             </>
         )
