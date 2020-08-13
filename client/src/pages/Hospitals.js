@@ -11,7 +11,7 @@ const HospitalsPage = (props) => {
       <div className="container mainWrapper">
         <Header />
         <Navbar logout={props.logout} />
-        {/* <HospitalComp /> */}
+        <HospitalComp />
         <Footer />
       </div>
     </>
