@@ -1,0 +1,22 @@
+.mapboxgl-canvas {
+  position: relative;
+  /* height: 500px !important; */
+  margin-bottom: 30px;
+  
+}
+.mapboxgl-canvas-container,
+.mapboxgl-interactive,
+.mapboxgl-touch-drag-pan,
+.mapboxgl-touch-zoom-rotate {
+  height: 40vh !important;
+}
+
+.mapboxgl-ctrl-geocoder--input {
+  color: black;
+  background-color: white;
+}
+
+.suggestions {
+  color: black;
+  background-color: white;
+}

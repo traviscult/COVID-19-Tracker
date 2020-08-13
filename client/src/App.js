@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import News from './pages/News';
-import Members from './pages/members'
+import Members from './pages/members';
+import Hospitals from './pages/Hospitals'
 import AUTH from './utils/AUTH';
 
 function App() {
@@ -83,6 +84,7 @@ function App() {
             <Route exact path="/" component={() => <Home signUpUser={signUpUser} login={login} />} />
             <Route exact path="/news" component={News} />
             <Route exact path="/members" component={Members} />
+            <Route exact path="/hospitals" component={Hospitals} />
           </BrowserRouter>
         )}
 
@@ -91,6 +93,7 @@ function App() {
             <Route exact path="/" component={() => <Members logout={logout}/>} />
             <Route exact path="/news" component={() => <News logout={logout}/>} />
             <Route exact path="/members" component={() => <Members logout={logout}/>}  />
+            <Route exact path="/hospitals" component={() => <Hospitals logout={logout}/>}  />
           </BrowserRouter>
         )}
       </div>
