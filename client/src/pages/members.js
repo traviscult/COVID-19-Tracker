@@ -7,12 +7,13 @@ import Navbar from "../components/navigation/Navbar";
 import StateSearch from "../components/members/StateSearch";
 
 const Members = (props) => {
+
   return (
     <>
       <div className="container mainWrapper">
         <Header />
         <Navbar logout={props.logout} />
-        <h3 className="text-center pageTitle">Welcome to members dashboard!</h3>
+        <h3 className="text-center pageTitle">Welcome to your dashboard!</h3>
         <div className="container">
           <div className="row">
             <div className="col-sm-12 col-md-5">

@@ -14,9 +14,9 @@ const Assessment = () => {
   const [triageResult, setTriageResult] = useState({});
 
   useEffect(() => {
-    console.log("use effect This is being called");
+    // console.log("use effect This is being called");
     API.getQuestions().then((res) => {
-      console.log(" use effect assessment", res.data);
+      // console.log(" use effect assessment", res.data);
       const response = res.data.question;
       setQuestionsObject(response);
       const answerArray = response.items.map((question) => {

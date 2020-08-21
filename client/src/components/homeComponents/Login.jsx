@@ -9,7 +9,7 @@ const Login = ({ login }) => {
   const [redirectTo, setRedirectTo] = useState(null);
 
   const handleChange = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     setUserObject({
       ...userObject,
       [event.target.name]: event.target.value,
@@ -23,7 +23,9 @@ const Login = ({ login }) => {
     if (isLoggedin) {
       setRedirectTo("/members");
     }
-    console.log("wrong email or password");
+   else {
+     alert("Wrong email or password")
+   }
   };
 
   if (redirectTo) {

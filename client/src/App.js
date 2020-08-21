@@ -52,7 +52,6 @@ function App() {
   };
 
   const signUpUser = (userObject) => {
-    // console.log("CLICKED")
     // TODO - validate!
     AUTH.signup({
 
@@ -65,15 +64,27 @@ function App() {
       isLoggedIn: true
     }).then(response => {
       if (!response.data.errmsg) {
-        //  console.log("LOGGED")
         setLoggedIn(true);
         setUser(response.data);
+        console.log("logged in", response.data)
+        return true;
+        
       } else {
-        //   console.log('duplicate');
+        console.log("not logged in")
+        return false
       }
-    });
+    })
+    
+    AUTH.login(userObject.email, userObject.password).then(response => {
+      if (response.status === 200) {
+        // update the state
+        setLoggedIn(true);
+        setUser(response.data.user);
+        return true
+      };
 
-  };
+  });
+}
 
   return (
     <>
@@ -82,9 +93,9 @@ function App() {
         {!loggedIn && (
           <BrowserRouter>
             <Route exact path="/" component={() => <Home signUpUser={signUpUser} login={login} />} />
-            <Route exact path="/news" component={News} />
-            <Route exact path="/members" component={Members} />
-            <Route exact path="/hospitals" component={Hospitals} />
+            <Route exact path="/news" component={() => <Home signUpUser={signUpUser} login={login} />} />
+            <Route exact path="/members" component={() => <Home signUpUser={signUpUser} login={login} />} />
+            <Route exact path="/hospitals" component={() => <Home signUpUser={signUpUser} login={login} />} />
           </BrowserRouter>
         )}
 
