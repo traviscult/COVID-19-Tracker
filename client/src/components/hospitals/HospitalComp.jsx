@@ -1,6 +1,6 @@
 import React from 'react';
 import './hospital.css';
-import axios from "axios";
+import "../members/assessments.css"
 import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
@@ -48,7 +48,7 @@ export default class HospitalsPage extends React.Component {
         return (
             <>
                 <div className="col">
-                    <h3>Search for nearby Health Centers and Hospitals here</h3>
+                    <h3 >Search for Health Centers and Hospitals here</h3>
                     <div id='map'></div>
                 </div>
             </>

@@ -1,14 +1,22 @@
+.membersHospitalsTitle {
+  text-align: center;
+  color: brown;
+  font-weight: bold;
+  text-shadow: 4px 4px 8px rgba(255, 255, 255, .5);
+  margin-bottom: 2rem;
+}
+
 .mapboxgl-canvas {
   position: relative;
   /* height: 500px !important; */
-  margin-bottom: 30px;
+  margin-bottom: 0px;
   
 }
 .mapboxgl-canvas-container,
 .mapboxgl-interactive,
 .mapboxgl-touch-drag-pan,
 .mapboxgl-touch-zoom-rotate {
-  height: 40vh !important;
+  height: 50vh !important;
 }
 
 .mapboxgl-ctrl-geocoder--input {
