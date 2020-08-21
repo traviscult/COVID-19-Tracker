@@ -66,7 +66,7 @@ function App() {
       if (!response.data.errmsg) {
         setLoggedIn(true);
         setUser(response.data);
-        console.log("logged in")
+        console.log("logged in", response.data)
         return true;
         
       } else {
