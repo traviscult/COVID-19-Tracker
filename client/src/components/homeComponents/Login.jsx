@@ -23,7 +23,9 @@ const Login = ({ login }) => {
     if (isLoggedin) {
       setRedirectTo("/members");
     }
-    console.log("wrong email or password");
+   else {
+     alert("Wrong email or password")
+   }
   };
 
   if (redirectTo) {
