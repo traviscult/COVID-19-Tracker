@@ -9,8 +9,8 @@ const userSchema = new Schema({
   age: { type: String, unique: false },
   race: { type: String, unique: false },
   gender: { type: String, unique: false },
-  email: { type: String, unique: false, required: false },
-  password: { type: String, unique: false, required: false },
+  email: { type: String, unique: true, required: true },
+  password: { type: String, unique: false, required: true },
   isLoggedIn: { type: Boolean, default: false}
  
 });
