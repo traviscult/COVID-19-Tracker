@@ -80,7 +80,7 @@ function App() {
         // update the state
         setLoggedIn(true);
         setUser(response.data.user);
-        return true
+        return false
       };
 
   });
