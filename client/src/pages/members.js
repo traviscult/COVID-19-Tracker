@@ -12,7 +12,7 @@ const Members = (props) => {
       <div className="container mainWrapper">
         <Header />
         <Navbar logout={props.logout} />
-        <h3 className="text-center pageTitle">Welcome to members dashboard!</h3>
+        <h3 className="text-center pageTitle">Welcome to your members dashboard!</h3>
         
         <div className="container">
         

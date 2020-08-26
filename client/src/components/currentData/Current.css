@@ -10,8 +10,9 @@
 
   .dataTitle{
       font-weight: bolder;
+      margin-bottom: 0.5rem;
   }
 
-  #currentOne{
-      margin-bottom: 2rem !important;
+  #currentOne, #test, #cummulativeOne{
+      margin-bottom: 1rem !important;
   }
