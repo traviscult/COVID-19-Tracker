@@ -18,15 +18,15 @@ export default class CurrentData extends React.Component {
     render() {
         return (
             <>
-                <div className="row">
-                    <div className="col-sm-6 col-md-6 currentData" id="currentOne">
-                        <h5>Current US Data</h5>
+                <div className="container row dataCol">
+                    <div className="col-sm-12 col-md-12" id="currentOne">
+                        <h5 className="dataTitle">Current US Data</h5>
                         <p>Current Hospitalized: {this.state.data.hospitalizedCurrently}</p>
                         <p>Current ICU: {this.state.data.inIcuCurrently}</p>
                         <p>Current Ventailator: {this.state.data.onVentilatorCurrently}</p>
                     </div>
-                    <div className="col-sm-6 col-md-6 currentData" id="cummulativeOne">
-                        <h5>Cummulative US Data</h5>
+                    <div className="col-sm-12 col-md-12" id="cummulativeOne">
+                        <h5 className="dataTitle">Cummulative US Data</h5>
                         <p>Total Deaths: {this.state.data.death}</p>
                         <p>Total Hospitalized: {this.state.data.hospitalizedCumulative}</p>
                         <p>Total Positive Cases: {this.state.data.positive}</p>

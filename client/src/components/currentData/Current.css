@@ -1,7 +1,17 @@
-#currentOne{
-    padding-left: 15%;
-}
+.dataCol {
+    padding: 20px;
+    background-color: #f5ecf0;
+    margin-top: 2rem!important;
+    margin-left: 1rem!important;
+    box-shadow: 6px 1px 6px rgba(98, 98, 98, .2);
+    height: auto;
+    /* margin: 0 auto!important; */
+  }
 
-#cummulativeOne{
-    padding-left: 10%;
-}
+  .dataTitle{
+      font-weight: bolder;
+  }
+
+  #currentOne{
+      margin-bottom: 2rem !important;
+  }

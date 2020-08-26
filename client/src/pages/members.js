@@ -15,11 +15,13 @@ const Members = (props) => {
         <h3 className="text-center pageTitle">Welcome to members dashboard!</h3>
         
         <div className="container">
-        <CurrentData />
+        
           <div className="row">
           
-            <div className="col-sm-12 col-md-12">
-           
+            <div className="col-sm-12 col-md-4">
+            <CurrentData />
+            </div>
+            <div className="col-sm-12 col-md-8">
               <StateSearch />
             </div>
           </div>
