@@ -13,10 +13,13 @@ const Members = (props) => {
         <Header />
         <Navbar logout={props.logout} />
         <h3 className="text-center pageTitle">Welcome to members dashboard!</h3>
-        <CurrentData />
+        
         <div className="container">
+        <CurrentData />
           <div className="row">
+          
             <div className="col-sm-12 col-md-12">
+           
               <StateSearch />
             </div>
           </div>
