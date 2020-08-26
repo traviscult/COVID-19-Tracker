@@ -1,13 +1,15 @@
 ## COVID-19 Tracker
 [![React](https://img.shields.io/badge/Made%20With-React-purple.svg)](https://shields.io/) [![Mongoose](https://img.shields.io/badge/Utilizes-Mongoose-red.svg)](https://shields.io/)  
-[![Active](https://img.shields.io/badge/Status-Active-green.svg)](https://shields.io/) [![Development](https://img.shields.io/badge/Version-Development-blue.svg)](https://shields.io/)  
+[![Active](https://img.shields.io/badge/Status-Active-green.svg)](https://shields.io/) [![Development](https://img.shields.io/badge/Version-1.10-blue.svg)](https://shields.io/)  
 
 ## Description
 This application, powered by React.JS and JavaScript, will allow the user to create a profile and allow them to use a symptom checker and map to find out information. It will allow the user to fill out a questionnaire that will advise the user on triage levels and if further medical intervention is needed. The map allows the user to click on their state and county and see the current active cases and deaths. This application also provides up-to-date news articles on COVID-19.
 
 <div align="center"><img src="client/public/images/Main.png" width="500" alt="main"></div>
 
+If you believe you have been exposed to COVID or possible have COVID, you can check out our symptom checker and find a medical facility near you.
 
+<div align="center"><img src="client/public/images/Hospitals.png" width="500" alt="main"></div>
 
 ## Table of Contents
 * [User Story](#userstory)
