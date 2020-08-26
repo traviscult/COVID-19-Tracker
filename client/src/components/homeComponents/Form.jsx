@@ -234,14 +234,13 @@ function SignupForm(props) {
           </div>
 
           <div className="signUpBtnWrapper text-center">
-            {" "}
             <button
               type="submit"
               onClick={handleSubmit}
               className="btn signUpBtn text-center"
             >
               Sign Up
-            </button>{" "}
+            </button>
           </div>
         </form>
       </div>

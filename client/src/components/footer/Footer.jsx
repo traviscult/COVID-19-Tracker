@@ -10,7 +10,7 @@ const Footer = () => {
       <footer>
         <p className="py-3">
           &copy;{currentYear} &bull; COVID-19 Tracker App &bull; Contributors:
-          Britt Melia, Cate Dunn, Edrick Ngouyassa, Joy Chen, Shiva Sharma,
+           Cate Dunn, Joy Chen, Shiva Sharma,
           Travis Cultreri{" "}
         </p>
       </footer>

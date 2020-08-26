@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import News from './pages/News';
-import Members from './pages/members'
+import Members from './pages/members';
+import Hospitals from './pages/Hospitals'
 import AUTH from './utils/AUTH';
 
 function App() {
@@ -51,7 +52,6 @@ function App() {
   };
 
   const signUpUser = (userObject) => {
-    // console.log("CLICKED")
     // TODO - validate!
     AUTH.signup({
 
@@ -64,15 +64,27 @@ function App() {
       isLoggedIn: true
     }).then(response => {
       if (!response.data.errmsg) {
-        //  console.log("LOGGED")
         setLoggedIn(true);
         setUser(response.data);
+        console.log("logged in", response.data)
+        return true;
+        
       } else {
-        //   console.log('duplicate');
+        console.log("not logged in")
+        return false
       }
-    });
+    })
+    
+    AUTH.login(userObject.email, userObject.password).then(response => {
+      if (response.status === 200) {
+        // update the state
+        setLoggedIn(true);
+        setUser(response.data.user);
+        return false
+      };
 
-  };
+  });
+}
 
   return (
     <>
@@ -81,8 +93,9 @@ function App() {
         {!loggedIn && (
           <BrowserRouter>
             <Route exact path="/" component={() => <Home signUpUser={signUpUser} login={login} />} />
-            <Route exact path="/news" component={News} />
-            <Route exact path="/members" component={Members} />
+            <Route exact path="/news" component={() => <Home signUpUser={signUpUser} login={login} />} />
+            <Route exact path="/members" component={() => <Home signUpUser={signUpUser} login={login} />} />
+            <Route exact path="/hospitals" component={() => <Home signUpUser={signUpUser} login={login} />} />
           </BrowserRouter>
         )}
 
@@ -91,6 +104,7 @@ function App() {
             <Route exact path="/" component={() => <Members logout={logout}/>} />
             <Route exact path="/news" component={() => <News logout={logout}/>} />
             <Route exact path="/members" component={() => <Members logout={logout}/>}  />
+            <Route exact path="/hospitals" component={() => <Hospitals logout={logout}/>}  />
           </BrowserRouter>
         )}
       </div>

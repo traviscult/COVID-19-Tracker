@@ -69,8 +69,10 @@ class Map extends Component {
     return (
       <>
         <div className="container mapCol row">
-          <h5>The USA COVID-19 Summary</h5>
-          <p>Click on a state map and choose a county from the list below.</p>
+          {/* <h5>The USA COVID-19 Summary</h5> */}
+         <div className="detail">Click on a state map and choose a county from the list below.
+      
+           </div>
           <USAMap onClick={this.mapHandler} />
         </div >
       </>
