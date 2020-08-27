@@ -26,7 +26,7 @@ As a person living within the United States, I want to check to see the current 
 
 
 ## Demo
-Visit https://covid19-tracker-applicaiton.herokuapp.com/ to see the live demo.
+Visit https://covid19-symptom-tracker-app.herokuapp.com/ to see the live demo.
 
 ## License
 [![CC-0 license](https://img.shields.io/badge/License-CC--0-blue.svg)](https://creativecommons.org/licenses/by-nd/4.0) 
