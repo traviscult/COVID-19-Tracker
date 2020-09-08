@@ -3,7 +3,8 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import News from './pages/News';
 import Members from './pages/members';
-import Hospitals from './pages/Hospitals'
+import Hospitals from './pages/Hospitals';
+import Chart from './pages/Chart'
 import AUTH from './utils/AUTH';
 
 function App() {
@@ -96,6 +97,7 @@ function App() {
             <Route exact path="/news" component={() => <Home signUpUser={signUpUser} login={login} />} />
             <Route exact path="/members" component={() => <Home signUpUser={signUpUser} login={login} />} />
             <Route exact path="/hospitals" component={() => <Home signUpUser={signUpUser} login={login} />} />
+            <Route exact path="/chart" component={() => <Chart logout={logout}/>} />
           </BrowserRouter>
         )}
 
