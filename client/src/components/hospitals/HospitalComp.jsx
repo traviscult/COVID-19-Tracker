@@ -21,8 +21,8 @@ export default class HospitalsPage extends React.Component {
         }
 
         const showPosition = (position) => {
-            let userLat = position.coords.latitude.toFixed(2) || 35.78;
-            let userLon = position.coords.longitude.toFixed(2) || -78.64;
+            let userLat = position.coords.latitude.toFixed(2);
+            let userLon = position.coords.longitude.toFixed(2);
             console.log(userLat, userLon)
 
             const map = new mapboxgl.Map({
