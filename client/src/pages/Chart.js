@@ -3,6 +3,7 @@ import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import Navbar from "../components/navigation/Navbar";
 import Chart from "../components/chart/chart";
+import CountryChart from "../components/CountryChart/countryChart"
 import "../components/newsComponent/news.css";
 
 const ChartComp = (props) => {
@@ -17,6 +18,7 @@ const ChartComp = (props) => {
         <div className="row">
           <Chart />
         </div>
+      <CountryChart />
         <Footer />
       </div>
     </>
