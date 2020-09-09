@@ -12,9 +12,9 @@ const ChartComp = (props) => {
         <Header />
         <Navbar logout={props.logout} />
 
-        <h3 className="text-center pageTitle">Chart Placeholder</h3>
+        <h3 className="text-center pageTitle">Country and State Trends</h3>
 
-        <div className="row newsContentWrapper">
+        <div className="row">
           <Chart />
         </div>
         <Footer />
