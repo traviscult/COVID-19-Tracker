@@ -18,6 +18,7 @@ const state = {
   ]
 }
 
+const stateSelected = ["NC"]
 
 
 export default class Chart extends React.Component {
@@ -34,7 +35,7 @@ export default class Chart extends React.Component {
           options={{
             title:{
               display:true,
-              text:'Average Rainfall per month',
+              text:{stateSelected} +'Average Rainfall per month',
               fontSize:20
             },
             legend:{
