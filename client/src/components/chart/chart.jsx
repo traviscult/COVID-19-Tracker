@@ -1,4 +1,5 @@
 import React from 'react';
+import StateDropdown from './dropdown'
 import {Line} from 'react-chartjs-2';
 
 const state = {
@@ -6,7 +7,7 @@ const state = {
            'April', 'May'],
   datasets: [
     {
-      label: 'Rainfall',
+      label: 'Cases',
       fill: false,
       lineTension: 0.5,
       backgroundColor: 'rgba(75,192,192,1)',
@@ -17,16 +18,24 @@ const state = {
   ]
 }
 
+const stateSelected = ["NC"]
+
+
 export default class Chart extends React.Component {
   render() {
     return (
-      <div>
+      <>
+      <div className="col-3">
+        put stats here
+      </div>
+      <div className="col-9">
+        <StateDropdown />
         <Line
           data={state}
           options={{
             title:{
               display:true,
-              text:'Average Rainfall per month',
+              text:{stateSelected} +'Average Rainfall per month',
               fontSize:20
             },
             legend:{
@@ -36,6 +45,7 @@ export default class Chart extends React.Component {
           }}
         />
       </div>
+      </>
     );
   }
 }
