@@ -1,6 +1,7 @@
 import React from 'react';
 import StateDropdown from './dropdown'
 import {Line} from 'react-chartjs-2';
+import axios from 'axios'
 
 const state = {
   labels: ['January', 'February', 'March',
@@ -22,6 +23,18 @@ const stateSelected = ["NC"]
 
 
 export default class Chart extends React.Component {
+
+  componentDidMount() {
+
+    axios.get("https://data.cdc.gov/resource/9mfq-cb36.json?state=" + stateSelected)
+        .then(res => {
+
+            console.log("NC DATA", res.data);
+            this.setState({ datasets: res.data })
+
+        })
+};
+
   render() {
     return (
       <>
@@ -35,7 +48,7 @@ export default class Chart extends React.Component {
           options={{
             title:{
               display:true,
-              text:{stateSelected} +'Average Rainfall per month',
+              text:{stateSelected},
               fontSize:20
             },
             legend:{
