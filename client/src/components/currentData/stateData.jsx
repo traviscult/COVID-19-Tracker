@@ -1,33 +1,40 @@
 import React from 'react';
-// import StateDropdown from './dropdown';
+import StateDropdown from './dropdown';
 // import './Current.css';
 import axios from "axios";
 
 export default class StateData extends React.Component {
-    state = {
-        data: []
-    }
-     componentDidMount() {
-        let stateSelected = "NC";
+    constructor() {
+        super();
+        this.state = {
+          value: "",
+          data: [],
+        };
+      }
 
-        axios.get("https://api.covidtracking.com/v1/states/" + stateSelected + "/current.json")
-            .then(res => {
-                console.log(res.data);
-                this.setState({ data: res.data })
-            })
-    }
-
-    async getCounty(value) {
+    async getState(value) {
         // let stateSelected = this.props.state.province;
         let res = await axios.get("https://api.covidtracking.com/v1/states/" + value + "/current.json");
+        console.log("value", value);
+        console.log(res.data)
         this.setState({
-          data: res.data
+          data: res.data,
+          value: res.data.state
         });
       }
+
+      stateCall = (value) => {
+        this.setState({
+          value: value,
+        });
+        this.getState(value);
+        console.log(value)
+      };
 
     render() {
         return (
             <>
+            <StateDropdown value={this.stateCall} />
                 <div id="test">
                     <h5 className="dataTitle">{this.state.data.state} Data</h5>
                     <p>Total Tests: {this.state.data.totalTestResults}</p>
