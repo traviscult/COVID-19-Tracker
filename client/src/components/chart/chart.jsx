@@ -26,10 +26,7 @@ export default class Chart extends React.Component {
   render() {
     return (
       <>
-      <div className="col-3">
-        put stats here
-      </div>
-      <div className="col-9">
+      <div>
         <Line
           data={state}
           options={{
