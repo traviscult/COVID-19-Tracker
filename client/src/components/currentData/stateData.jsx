@@ -4,6 +4,10 @@ import StateDropdown from './dropdown';
 import axios from "axios";
 
 export default class StateData extends React.Component {
+    date = new Date().getDate() - 1;
+    month = new Date().getMonth()+1;
+    year = new Date().getFullYear();
+
     constructor() {
         super();
         this.state = {
