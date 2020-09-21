@@ -1,5 +1,5 @@
 import React from 'react';
-import StateDropdown from './dropdown';
+// import StateDropdown from './dropdown';
 // import './Current.css';
 import axios from "axios";
 
@@ -7,14 +7,7 @@ export default class StateData extends React.Component {
     state = {
         data: []
     }
-
-    date = new Date().getDate() - 1;
-    month = new Date().getMonth();
-    year = new Date().getFullYear();
-
-
-
-    componentDidMount() {
+     componentDidMount() {
         let stateSelected = "NC";
 
         axios.get("https://api.covidtracking.com/v1/states/" + stateSelected + "/current.json")
@@ -23,6 +16,14 @@ export default class StateData extends React.Component {
                 this.setState({ data: res.data })
             })
     }
+
+    async getCounty(value) {
+        // let stateSelected = this.props.state.province;
+        let res = await axios.get("https://api.covidtracking.com/v1/states/" + value + "/current.json");
+        this.setState({
+          data: res.data
+        });
+      }
 
     render() {
         return (

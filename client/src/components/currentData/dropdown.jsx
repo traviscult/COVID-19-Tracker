@@ -21,7 +21,7 @@ export default class StateDropdown extends React.Component {
                         </select>
                         <input
                             type="submit"
-                            value="See Chart"
+                            value="See Data"
                             className="stateSubmitBtn"
                         ></input>
                     </label>
