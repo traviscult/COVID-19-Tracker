@@ -1,17 +1,6 @@
 import React, { Component } from 'react';
 
 export default class StateDropdown extends React.Component {
-    // constructor() {
-    //     super();
-    //     this.state = {
-    //       value: "",
-    //       deaths: "",
-    //       active: "",
-    //     };
-    
-    //     this.handleChange = this.handleChange.bind(this);
-    //     this.handleSubmit = this.handleSubmit.bind(this);
-    //   }
     render() {
         
 

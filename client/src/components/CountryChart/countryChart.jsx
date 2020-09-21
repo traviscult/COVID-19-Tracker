@@ -34,9 +34,7 @@ export default class CountryChart extends React.Component {
     };
 
     render() {
-        // return (
-        //     <>
-        //         {this.state.datasets.map(api => {
+
         return (
             <div className="col-9">
                 <Line
@@ -57,8 +55,6 @@ export default class CountryChart extends React.Component {
             </div>
 
         );
-        //         })}
-        //     </>
-        // )
+
     }
 }
