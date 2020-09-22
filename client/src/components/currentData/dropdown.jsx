@@ -1,46 +1,29 @@
 import React, { Component } from 'react';
 
 export default class StateDropdown extends Component {
-    constructor() {
-        super();
-        this.state = {
-            states: "",
-            statesOptions: [""],
-        };
+    stateHandler = (event) => {
+        console.log("THIS IS BEING CALLED")
+        const stateSelected = event.value;
+        console.log(stateSelected)        
     };
-
-    async stateHandler(event) {
-        console.log('THIS IS BEING CLICKED')
-        const stateParam = event.target.dataset.name
-        await this.props.value(stateParam);
-        console.log("state selected", stateParam)
-    };
-
 
     render() {
-        let states = ['AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MH', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'MP', 'OH', 'OK', 'OR', 'PW', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY'];
-
-        let stateOptions = states.map((state, i) => (
-            <option value={state} key={i}>
+        let stateList = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Florida','Georgia','Guam','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Palau','Pennsylvania','Puerto Rico','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virgin Island','Virginia','Washington','West Virginia','Wisconsin','Wyoming'];
+        let stateOptions = stateList.map((state, i) => (
+            <div value={state} key={i} onClick={this.stateHandler}>
                 {state}
-            </option>
+            </div>
         ));
         return (
             <>
-                <form className="dropdownOptionForm">
-                    <label>
-                        <select>
-                            <option value="">Select a State</option>
-                            {stateOptions}
-                        </select>
-                        <input
-                            type="submit"
-                            value="See Data"
-                            className="stateSubmitBtn"
-                            onClick={this.stateHandler}
-                        ></input>
-                    </label>
-                </form>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Select State
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        {stateOptions}
+                    </div>
+                </div>
             </>
         )
     }

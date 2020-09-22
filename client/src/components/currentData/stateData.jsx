@@ -38,7 +38,7 @@ export default class StateData extends React.Component {
     render() {
         return (
             <>
-            <StateDropdown value={this.stateCall} />
+            <StateDropdown value={this.state.value} />
                 <div id="test">
                     <h5 className="dataTitle">{this.state.data.state} Data</h5>
                     <p>Total Tests: {this.state.data.totalTestResults}</p>
