@@ -5,7 +5,6 @@ import Navbar from "../components/navigation/Navbar";
 import Chart from "../components/chart/chart";
 import CountryChart from "../components/CountryChart/countryChart";
 import StateData from "../components/currentData/stateData";
-// import StateDropdown from "../components/currentData/dropdown"
 import "../components/newsComponent/news.css";
 
 const ChartComp = (props) => {

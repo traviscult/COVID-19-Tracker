@@ -18,12 +18,6 @@ export default class StateData extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-//   stateHandler = (event) => {
-//     const stateSelected = event.target.value;
-//     console.log(event.data);
-//     console.log("state selected: ", stateSelected)
-//     // this.props.stateSelected(stateSelected)          
-// };
 handleChange(event) {
   this.setState({ value: event.target.value });
 }
@@ -42,14 +36,6 @@ handleSubmit = (event) => {
       value: res.data.state
     });
   }
-
-  // stateCall = (value) => {
-  //   this.setState({
-  //     value: value,
-  //   });
-  //   this.getState(value);
-  //   console.log(value)
-  // };
 
   render() {
     let stateList = ['AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MH', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'MP', 'OH', 'OK', 'OR', 'PW', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY'];
