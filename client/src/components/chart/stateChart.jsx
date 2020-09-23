@@ -1,26 +1,47 @@
 import React from'react';
 import { Component } from 'react'
 import CanvasJSReact from'./canvasChart/canvasjs.react';
+import axios from 'axios';
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+
  
 var dataPoints =[];
+let stateSelected = "NC"
+
 export default class StateChart extends Component {
+    componentDidMount(){
+		var chart = this.chart;
+		axios.get('https://data.cdc.gov/resource/9mfq-cb36.json?state=' + stateSelected)
+		.then(function(res) {
+            console.log(res.data)
+           
+			for (var i = 41; i < res.data.length; i++) {
+				dataPoints.push({
+					x: Date.parse(res.data[i].submission_date),
+					y: parseInt(res.data[i].tot_cases)
+                });
+                // console.log(Date.parse(res.data[i].submission_date), res.data[i].tot_cases)
+            }
+            
+			chart.render();
+		});
+	}
  
 	render() {	
 		const options = {
-			theme: "light2",
+			theme: "dark2",
 			title: {
-				text: "Stock Price of NIFTY 50"
+				text: stateSelected+ " case count"
 			},
 			axisY: {
-				title: "Price in USD",
-				prefix: "$"
+				title: "Cases",
+				prefix: ""
 			},
 			data: [{
 				type: "line",
 				xValueFormatString: "MMM YYYY",
-				yValueFormatString: "$#,##0.00",
+				yValueFormatString: "",
 				dataPoints: dataPoints
 			}]
 		}
@@ -34,21 +55,6 @@ export default class StateChart extends Component {
 		);
 	}
 	
-	componentDidMount(){
-		var chart = this.chart;
-		fetch('https://canvasjs.com/data/gallery/react/nifty-stock-price.json')
-		.then(function(response) {
-			return response.json();
-		})
-		.then(function(data) {
-			for (var i = 0; i < data.length; i++) {
-				dataPoints.push({
-					x: new Date(data[i].x),
-					y: data[i].y
-				});
-			}
-			chart.render();
-		});
-	}
+	
 }
  
