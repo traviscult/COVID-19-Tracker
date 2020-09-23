@@ -1,5 +1,5 @@
 import React from 'react';
-// import StateDropdown from './dropdown';
+import StateChart from '../chart/stateChart';
 // import './Current.css';
 import axios from "axios";
 
@@ -18,18 +18,18 @@ export default class StateData extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-handleChange(event) {
-  this.setState({ value: event.target.value });
-}
-handleSubmit = (event) => {
-  event.preventDefault();
-  this.getState(this.state.value);
-};
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.getState(this.state.value);
+  };
 
   async getState(value) {
     // let stateSelected = this.value;
     let res = await axios.get("https://api.covidtracking.com/v1/states/" + value + "/current.json");
-    
+
     console.log(res.data)
     this.setState({
       data: res.data,
@@ -46,29 +46,38 @@ handleSubmit = (event) => {
     ));
     return (
       <>
-        <form onSubmit={this.handleSubmit} className="dropdownOptionForm">
-          <label>
-            <select value={this.state.value} onChange={this.handleChange}>
-              <option value="">Select a state</option>
-              {stateOptions}
-            </select>
-            <input
-              type="submit"
-              value="Click to view the data below"
-              className="stateSubmitBtn"
-            ></input>
-          </label>
-        </form>
-
-        <div id="stateData">
-          <h5 className="dataTitle">{this.state.data.state} Data</h5>
-          <p>Total Tests: {this.state.data.totalTestResults}</p>
-          <p>Positive Cases: {this.state.data.positive}</p>
-          <p>Negative Tests: {this.state.data.negative}</p>
-          <p>Currently Hospitalized: {this.state.data.hospitalizedCurrently}</p>
-          <p>Deaths: {this.state.data.death}</p>
+        <div className="row">
+          <form onSubmit={this.handleSubmit} className="dropdownOptionForm">
+            <label>
+              <select value={this.state.value} onChange={this.handleChange}>
+                <option value="">Select a state</option>
+                {stateOptions}
+              </select>
+              <input
+                type="submit"
+                value="Click to view data"
+                className="stateSubmitBtn"
+              ></input>
+            </label>
+          </form>
         </div>
-        <p className="disclosure">Disclosure: All data is sourced from The COVID Tracking Project and is up-to-date as of {this.month}/{this.date}/{this.year}. Please note that not all testing is reported and numbers may slightly vary from CDC data. </p>
+        <div className="row">
+
+          <div className="col-4">
+            <div id="stateData">
+              <h5 className="dataTitle">{this.state.data.state} Data</h5>
+              <p>Total Tests: {this.state.data.totalTestResults}</p>
+              <p>Positive Cases: {this.state.data.positive}</p>
+              <p>Negative Tests: {this.state.data.negative}</p>
+              <p>Currently Hospitalized: {this.state.data.hospitalizedCurrently}</p>
+              <p>Deaths: {this.state.data.death}</p>
+            </div>
+            <p className="disclosure">Disclosure: All data is sourced from The COVID Tracking Project and is up-to-date as of {this.month}/{this.date}/{this.year}. Please note that not all testing is reported and numbers may slightly vary from CDC data. </p>
+          </div>
+          <div className="col-8">
+      <StateChart />
+          </div>
+        </div>
       </>
     )
   }
