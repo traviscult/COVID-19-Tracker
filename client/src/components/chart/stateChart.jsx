@@ -2,21 +2,23 @@ import React from'react';
 import { Component } from 'react'
 import CanvasJSReact from'./canvasChart/canvasjs.react';
 import axios from 'axios';
-var CanvasJS = CanvasJSReact.CanvasJS;
-var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+import StateData from '../currentData/stateData';
+
+let CanvasJS = CanvasJSReact.CanvasJS;
+let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
  
-var dataPoints =[];
+let dataPoints =[];
 let stateSelected = "NC"
 
 export default class StateChart extends Component {
     componentDidMount(){
-		var chart = this.chart;
+		let chart = this.chart;
 		axios.get('https://data.cdc.gov/resource/9mfq-cb36.json?state=' + stateSelected)
 		.then(function(res) {
             console.log(res.data)
            
-			for (var i = 41; i < res.data.length; i++) {
+			for (let i = 41; i < res.data.length; i++) {
 				dataPoints.push({
 					x: new Date(res.data[i].submission_date),
 					y: parseInt(res.data[i].tot_cases)
@@ -32,7 +34,7 @@ export default class StateChart extends Component {
 		const options = {
 			theme: "dark2",
 			title: {
-				text: stateSelected+ " case count"
+				text: stateSelected+ " Case Count"
 			},
 			axisY: {
 				title: "Cases",
