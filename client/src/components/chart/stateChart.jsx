@@ -18,10 +18,10 @@ export default class StateChart extends Component {
            
 			for (var i = 41; i < res.data.length; i++) {
 				dataPoints.push({
-					x: Date.parse(res.data[i].submission_date),
+					x: new Date(res.data[i].submission_date),
 					y: parseInt(res.data[i].tot_cases)
                 });
-                // console.log(Date.parse(res.data[i].submission_date), res.data[i].tot_cases)
+               
             }
             
 			chart.render();
