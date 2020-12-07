@@ -15,6 +15,8 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+mongodb+srv://Travis:CovidTracker1@cluster0.2qavj.mongodb.net/<dbname>?retryWrites=true&w=majority
+
 app.use(session({
   secret: process.env.APP_SECRET || 'mongodb://user:password1@ds031965.mlab.com:31965/heroku_w9nqrtn6',
   store: new MongoStore({ mongooseConnection: dbConnection }),
